@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+        <action>
+            <actionName>build</actionName>
+            <packagings>
+                <packaging>*</packaging>
+            </packagings>
+            <goals>
+                <goal>install</goal>
+            </goals>
+        </action>
+        <action>
+            <actionName>rebuild</actionName>
+            <packagings>
+                <packaging>*</packaging>
+            </packagings>
+            <goals>
+                <goal>-s</goal>
+                <goal>C:\Users\victo\.m2\settings.xml</goal>
+                <goal>clean</goal>
+                <goal>install</goal>
+                <goal>tomcat7:deploy</goal>
+            </goals>
+        </action>
+    </actions>
