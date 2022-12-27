@@ -1,10 +1,6 @@
 
 package util;
 
-/**
- *
- * @author Javi
- */
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
