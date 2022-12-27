@@ -12,12 +12,30 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Inicio de sesión</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-
-
+        <link rel="stylesheet" href="styles.css"/>
     </head>
     <body>
-        <h1>Acceso</h1>
-        <button type="submit" class="btn btn-primary">Entrar</button>
+        <div id="background" class="text-light d-flex flex-column w-100 h-100 align-items-center justify-content-center">
+            <h1>Acceso</h1>
+            <div class="mx-auto w-50  h-50 d-flex flex-column justify-content-center">
+                
+                <form method="POST" action="login" class="w-100 h-100 mx-auto d-flex flex-column justify-content-center" >
+                    <fieldset class="my-5">
+                        <div class="form-group mb-4"> 
+                            <label for="email-input" class="visually-hidden form-label">Email</label>
+                            <input required type="email" class="form-control form-control-lg bg-primary-subtle" id="email-input" placeholder="Email"></input>
+                        </div>
+                        <div class="form-group"> 
+                            <label for="pass-input " class="visually-hidden form-label">Contraseña</label>
+                            <input required type="password" class="form-control form-control-lg bg-primary-subtle" id="pass-input" placeholder="Contraseña"></input>
+                        </div>
+                    </fieldset>
+                    <button type="submit" class="text-primary btn btn-light"><b>ENTRAR</b></button>
+                </form>
+
+            </div>
+        </div>
+            
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     </body>
 </html>
