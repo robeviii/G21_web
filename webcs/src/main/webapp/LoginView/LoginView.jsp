@@ -23,11 +23,11 @@
                     <fieldset class="my-5">
                         <div class="form-group mb-4"> 
                             <label for="email-input" class="visually-hidden form-label">Email</label>
-                            <input required type="email" class="form-control form-control-lg bg-primary-subtle" id="email-input" placeholder="Email"></input>
+                            <input required type="email" class="form-control form-control-lg bg-primary-subtle" id="email-input" placeholder="Email" name="email"></input>
                         </div>
                         <div class="form-group"> 
                             <label for="pass-input " class="visually-hidden form-label">Contraseña</label>
-                            <input required type="password" class="form-control form-control-lg bg-primary-subtle" id="pass-input" placeholder="Contraseña"></input>
+                            <input required type="password" class="form-control form-control-lg bg-primary-subtle" id="pass-input" placeholder="Contraseña" name="password"></input>
                         </div>
                     </fieldset>
                     <button type="submit" class="text-primary btn btn-light"><b>ENTRAR</b></button>
