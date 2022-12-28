@@ -12,7 +12,7 @@ import java.util.List;
  */
 public interface Dao<T> {
     
-    public T get(long id);
+    public T get(String email);
     
     List<T> getAll();
     

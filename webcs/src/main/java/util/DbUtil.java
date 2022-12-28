@@ -19,16 +19,16 @@ public class DbUtil {
         String url = "jdbc:mysql://localhost:3306/userdb?useTimezone=true&serverTimezone=Europe/Madrid";
         String user = "root";
         String password = "webcs";
-        Log.logdb.info("Entramos a conectar con la BBDD");
+        Log.logdb.info("Conectando a BBDD...");
         if (connection != null) {
-            Log.logdb.info("Ya hay una conexion");
+            Log.logdb.info("Ya existe una conexion.");
             return connection;
         } else {
             try {
-                Log.logdb.info("Creamos una nueva conexion");
+                Log.logdb.info("Creando nueva conexion...");
                 Class.forName(driver);
                 connection = DriverManager.getConnection(url, user, password);
-                Log.logdb.info("Finalizamos config db");
+                Log.logdb.info("Conexion creada!");
             } catch (ClassNotFoundException e) {
                 Log.logdb.error("Error de conexion: " + e);
             } catch (SQLException e) {
