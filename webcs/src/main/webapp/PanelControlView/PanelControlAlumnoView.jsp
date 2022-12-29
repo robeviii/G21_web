@@ -46,19 +46,19 @@
                 <tbody>
                 <tr>
                     <td>Nombre</td>
-                    <td>Victor</td>        
+                    <td>${nombre}</td>        
                 </tr>
                 <tr>
                     <td>Dni</td>
-                    <td>0908297Y</td>        
+                    <td>${dni}</td>        
                 </tr>
                 <tr>
                     <td>Nota media</td>
-                    <td>7.4</td>        
+                    <td>${nota_media}</td>        
                  </tr>
                 <tr>
                     <td>Email</td>
-                    <td>victor@mora.es</td>        
+                    <td>${email}</td>        
                  </tr>
                 </tbody>
             </table>
