@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="5.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd">
     <servlet>
+        <servlet-name>PanelControlAlumnoServlet</servlet-name>
+        <servlet-class>controller.PanelControl.PanelControlAlumnoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PanelControlAlumnoServlet</servlet-name>
+        <url-pattern>/panelAlumno</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>InicioServlet</servlet-name>
+        <servlet-class>controller.Inicio.InicioServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InicioServlet</servlet-name>
+        <url-pattern>/inicio</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>controller.LoginServlet</servlet-class>
     </servlet>
