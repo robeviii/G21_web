@@ -16,4 +16,11 @@ form{
     background: linear-gradient(-45deg, #001B7C, #0063FF, #24C9FF);
     
 }
+li{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color:black;
+}
 

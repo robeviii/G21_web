@@ -1,2 +1,4 @@
 /webcs/target/
 /webcs/nbactions.xml
+/webcs/nb-configuration.xml
+/webcs/src/main/webapp/META-INF/context.xml
