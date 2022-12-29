@@ -44,12 +44,13 @@ public class TutorDao implements Dao<Tutor>{
                     tutor.setNombre(rs.getString("nombre"));
                     tutor.setApellido(rs.getString("apellido"));
                     tutor.setPassword(rs.getString("password"));
+                    return tutor;
                 }
-
+                
             } catch (SQLException e) {
                 Log.logdb.error("SQL Exception: " + e + "\n");
             }
-            return tutor;
+            return null;
         }
         else
         {
