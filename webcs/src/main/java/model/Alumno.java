@@ -9,17 +9,17 @@ package model;
  * @author victor
  */
 public class Alumno extends Usuario{
-    private int id;
+    private long id;
     private String dni;
     private double nota_media;
     private String nombre;
-    private int id_tutor;
+    private long id_tutor;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -47,11 +47,11 @@ public class Alumno extends Usuario{
         this.nombre = nombre;
     }
 
-    public int getId_tutor() {
+    public long getId_tutor() {
         return id_tutor;
     }
 
-    public void setId_tutor(int id_tutor) {
+    public void setId_tutor(long id_tutor) {
         this.id_tutor = id_tutor;
     }
     
