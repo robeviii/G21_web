@@ -5,6 +5,7 @@ package controller;
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
+import dao.AlumnoDao;
 import dao.TutorDao;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.annotation.WebServlet;
@@ -14,7 +15,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import model.Alumno;
 import model.Tutor;
+import model.Usuario;
 import util.Log;
 
 /**
@@ -26,11 +29,14 @@ import util.Log;
   urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
 
-    private TutorDao dao;
+    private TutorDao daoTutor;
+    private AlumnoDao daoAlumno;
     
     public LoginServlet() {
         super();
-        dao = new TutorDao();
+        daoTutor = new TutorDao();
+        daoAlumno = new AlumnoDao();
+
     }
     
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -65,21 +71,20 @@ public class LoginServlet extends HttpServlet {
         
         String email = request.getParameter("email");
         String pwd = request.getParameter("password");
-        Tutor tutor = dao.get(email);
-        if (tutor != null && tutor.getPassword().equals(pwd)){
-            Log.log.info("tutor logueado con exito");
-            HttpSession session = request.getSession();
-            session.setAttribute("nombre", tutor.getNombre());
-            session.setAttribute("apellido", tutor.getApellido());
-            session.setAttribute("email", email);
-            
-            //setting session to expiry in 30 mins
-            session.setMaxInactiveInterval(30*60);
-            
+        boolean estaLogueado = false;
+        
+        if (buscaAlumno(email, pwd, request)){
+            response.sendRedirect("/panelAlumno");            
+
+            return;
+        }
+        
+        if (buscaTutor(email, pwd, request)){
+            //Panel de control test
             response.sendRedirect("test/testDashboard.jsp");            
 
-        }
-        else {
+            return;
+        }else {
             Log.log.info("Error de login");
             HttpSession session = request.getSession();
             session.setAttribute("email", "notexists");
@@ -98,5 +103,41 @@ public class LoginServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+    
+    private boolean buscaAlumno(String email, String pwd, HttpServletRequest request){
+        Alumno alumno = daoAlumno.get(email);
+        
+        if(alumno != null && alumno.getPassword().equals(pwd)){
+            Log.log.info("alumno logueado con exito");
+            HttpSession session = request.getSession();
+            session.setAttribute("nombre", alumno.getNombre());
+            session.setAttribute("dni", alumno.getDni());
+            session.setAttribute("email", email);
+            session.setAttribute("nota_media", alumno.getNota_media());
+            session.setAttribute("id_tutor", alumno.getId_tutor());
+            //setting session to expiry in 30 mins
+            session.setMaxInactiveInterval(30*60); 
 
+            return true;
+        }
+        return false;
+    }
+    private boolean buscaTutor(String email, String pwd, HttpServletRequest request){
+        Tutor tutor = daoTutor.get(email);
+        
+        if (tutor != null && tutor.getPassword().equals(pwd)){
+            Log.log.info("tutor logueado con exito");
+            HttpSession session = request.getSession();
+            session.setAttribute("nombre", tutor.getNombre());
+            session.setAttribute("apellido", tutor.getApellido());
+            session.setAttribute("email", email);
+            
+            //setting session to expiry in 30 mins
+            session.setMaxInactiveInterval(30*60);
+          
+            return true;
+        }
+        return false;
+    }
+    
 }
