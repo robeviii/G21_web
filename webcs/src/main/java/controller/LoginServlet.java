@@ -13,6 +13,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import model.Tutor;
 import util.Log;
 
@@ -67,18 +68,24 @@ public class LoginServlet extends HttpServlet {
         Tutor tutor = dao.get(email);
         if (tutor != null && tutor.getPassword().equals(pwd)){
             Log.log.info("tutor logueado con exito");
-            request.setAttribute("nombre", tutor.getNombre());
-            request.setAttribute("apellido", tutor.getApellido());
-            request.setAttribute("email", email);
-             
-            RequestDispatcher view = request.getRequestDispatcher("test/testDashboard.jsp");            
-            view.forward(request, response);
-                
+            HttpSession session = request.getSession();
+            session.setAttribute("nombre", tutor.getNombre());
+            session.setAttribute("apellido", tutor.getApellido());
+            session.setAttribute("email", email);
+            
+            //setting session to expiry in 30 mins
+            session.setMaxInactiveInterval(30*60);
+            
+            response.sendRedirect("test/testDashboard.jsp");            
 
         }
         else {
-            System.out.println(tutor.getPassword().equals(pwd));
-            System.out.println(pwd);
+            Log.log.info("Error de login");
+            HttpSession session = request.getSession();
+            session.setAttribute("email", "notexists");
+            
+            response.sendRedirect("/login");      
+                
         }
     }
 

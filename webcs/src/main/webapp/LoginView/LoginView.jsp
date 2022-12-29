@@ -28,8 +28,16 @@
                         <div class="form-group"> 
                             <label for="pass-input " class="visually-hidden form-label">Contraseña</label>
                             <input required type="password" class="form-control form-control-lg bg-primary-subtle" id="pass-input" placeholder="Contraseña" name="password"></input>
-                        </div>
+                        </div>                       
                     </fieldset>
+                    <% String email =  (String) session.getAttribute("email");%>
+                    <% if(email != null){ %>
+                        <% if(email.equals("notexists")){ %>
+                            <div class="alert alert-danger" role="alert">No se encontro ese usuario</div>
+                        <% } %>
+                    <% } %>
+                    <% session.setAttribute("email",null);%>
+
                     <button type="submit" class="text-primary btn btn-light"><b>ENTRAR</b></button>
                 </form>
 
