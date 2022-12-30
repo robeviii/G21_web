@@ -52,6 +52,10 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        //Cierra la sesion en caso de que hubiese alguna abierta
+        HttpSession sesion = request.getSession();
+        sesion.invalidate();
         String forward = "LoginView/LoginView.jsp";
         RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);
