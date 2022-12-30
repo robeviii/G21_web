@@ -23,19 +23,22 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Solicitud</a>
+                    <a class="nav-link" href="/panelAlumno">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Informes</a>
-                 </li>
-
+                    <a class="nav-link" href="/solicitudPracticas">Solicitud</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/informeAlumno">Informes</a>
+                </li>
+                
             </ul>
              <div class="dropdown">
                 <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="fa-solid fa-user"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+                    <li><a class="dropdown-item" href="/login">Cerrar sesión</a></li>
                 </ul>
             </div>
             
