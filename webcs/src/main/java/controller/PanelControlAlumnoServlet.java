@@ -42,6 +42,15 @@ public class PanelControlAlumnoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //Header necesario para evitar que al cerrar sesion, se pueda volver
+        //hacia la pagina con el boton de retroceso del navegador
+        
+        response.setHeader("Cache-Control", "no-cache, no-store");
+        
+        if(request.getSession().getAttribute("email") == null){
+            response.sendRedirect("/login");
+            return;
+        }
         String forward = "PanelControlView/PanelControlAlumnoView.jsp";
         RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);
