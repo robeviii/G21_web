@@ -92,7 +92,21 @@ public class TutorDao implements Dao<Tutor>{
 
     @Override
     public void create(Tutor t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        PreparedStatement ps;        
+        
+        try{
+            ps = connection.prepareStatement("INSERT INTO tutor (nombre_t, apellido_t) VALUES (?,?)");
+            ps.setString(1, t.getNombre());
+            ps.setString(2, t.getApellido());
+            ps.execute();
+            
+            
+        } catch(SQLException e){
+            
+            System.out.println(e.toString());
+            
+        }
+        
     }
 
     @Override
@@ -104,5 +118,7 @@ public class TutorDao implements Dao<Tutor>{
     public void delete(Tutor t) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+    
+    
     
 }
