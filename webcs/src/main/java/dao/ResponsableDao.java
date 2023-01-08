@@ -19,7 +19,7 @@ import util.Log;
  *
  * @author victor
  */
-public class ResponsableDao implements Dao<Responsable>{
+public class ResponsableDao{
     
     private Connection connection;
 
@@ -31,7 +31,7 @@ public class ResponsableDao implements Dao<Responsable>{
 
     
     
-    public Responsable getByEmail(String email) {
+    public Responsable obtenerPorEmail(String email) {
         Responsable responsable = new Responsable();
         if (connection != null)
         {
@@ -61,8 +61,7 @@ public class ResponsableDao implements Dao<Responsable>{
         }
     }
 
-    @Override
-    public List<Responsable> getAll() {
+    public List<Responsable> listaResponsables() {
         List<Responsable> responsables = new ArrayList<Responsable>();
         if (connection != null)
         {
@@ -92,23 +91,4 @@ public class ResponsableDao implements Dao<Responsable>{
         }
     }
 
-    @Override
-    public void create(Responsable t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void update(Responsable t, String[] params) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void delete(Responsable t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public Responsable get(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }

@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+
 <!DOCTYPE html lang="es">
 <html>
     <head>
@@ -30,14 +32,13 @@
                             <input required type="password" class="form-control form-control-lg bg-primary-subtle" id="pass-input" placeholder="Contraseña" name="password"></input>
                         </div>                       
                     </fieldset>
-                    <% String email =  (String) session.getAttribute("email");%>
-                    <% if(email != null){ %>
-                        <% if(email.equals("notexists")){ %>
-                            <div class="alert alert-danger" role="alert">No se encontro ese usuario</div>
-                        <% } %>
-                    <% } %>
-                    <% session.setAttribute("email",null);%>
 
+                    <c:set var="nologin" value="${sessionScope.nologin}"></c:set>
+                    <c:if test="${nologin}">
+                        <div class="alert alert-danger" role="alert">No se encontro ese usuario</div>                  
+                    </c:if>
+                    <c:set var="nologin" scope="session" value="false"></c:set>
+                    
                     <button type="submit" class="text-primary btn btn-light"><b>ENTRAR</b></button>
                 </form>
 

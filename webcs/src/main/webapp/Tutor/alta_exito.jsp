@@ -13,8 +13,9 @@
     </head>
     <body>
         <h1>La empresa se ha dado de alta con exito</h1>
-        <form action="tutorcontroller?accion=exitoalta" method="POST" autocomplete="off">
+        <form action="ControladorTutor?accion=exitoalta" method="POST" autocomplete="off">
             <button id="volver" name="volver" type="submit">Volver pagina de inicio</button>
         </form>
+        
     </body>
 </html>

@@ -24,14 +24,14 @@ import util.Log;
  * @author victor
  */
 @WebServlet(
-  name = "LoginServlet", 
+  name = "ControladorLogin", 
   urlPatterns = "/login")
-public class LoginServlet extends HttpServlet {
+public class ControladorLogin extends HttpServlet {
 
     private TutorDao daoTutor;
     private AlumnoDao daoAlumno;
     
-    public LoginServlet() {
+    public ControladorLogin() {
         super();
         daoTutor = new TutorDao();
         daoAlumno = new AlumnoDao();
@@ -51,10 +51,17 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        boolean cerrarSesion = false;
+        cerrarSesion = Boolean.valueOf(request.getParameter("cerrarSesion"));
         
-        //Cierra la sesion en caso de que hubiese alguna abierta
-        HttpSession sesion = request.getSession();
-        sesion.invalidate();
+        System.out.println(cerrarSesion);
+        if (cerrarSesion){
+            //Cierra la sesion en caso de que se requiera por el parametro de URL
+            HttpSession sesion = request.getSession();
+            sesion.invalidate();
+        }
+        
+        
         String forward = "LoginView/LoginView.jsp";
         RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);
@@ -74,7 +81,6 @@ public class LoginServlet extends HttpServlet {
         
         String email = request.getParameter("email");
         String pwd = request.getParameter("password");
-        boolean estaLogueado = false;
         
         if (buscaAlumno(email, pwd, request)){
             response.sendRedirect("/panelAlumno");            
@@ -82,15 +88,14 @@ public class LoginServlet extends HttpServlet {
             return;
         }
         
-        if (buscaTutor(email, pwd, request)){
-            //Panel de control test
+        else if (buscaTutor(email, pwd, request)){
             response.sendRedirect("/panelTutor");            
 
             return;
         }else {
             Log.log.info("Error de login");
             HttpSession session = request.getSession();
-            session.setAttribute("email", "notexists");
+            session.setAttribute("nologin", true);
             
             response.sendRedirect("/login");      
                 
@@ -108,7 +113,7 @@ public class LoginServlet extends HttpServlet {
     }// </editor-fold>
     
     private boolean buscaAlumno(String email, String pwd, HttpServletRequest request){
-        Alumno alumno = daoAlumno.getByEmail(email);
+        Alumno alumno = daoAlumno.obtenerPorEmail(email);
         
         if(alumno != null && alumno.getPassword().equals(pwd)){
             Log.log.info("alumno logueado con exito");
@@ -126,7 +131,7 @@ public class LoginServlet extends HttpServlet {
         return false;
     }
     private boolean buscaTutor(String email, String pwd, HttpServletRequest request){
-        Tutor tutor = daoTutor.getByEmail(email);
+        Tutor tutor = daoTutor.obtenerPorEmail(email);
         
         if (tutor != null && tutor.getPassword().equals(pwd)){
             Log.log.info("tutor logueado con exito");
@@ -134,7 +139,8 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("nombre", tutor.getNombre());
             session.setAttribute("apellido", tutor.getApellido());
             session.setAttribute("email", email);
-            
+            session.setAttribute("id_tutor", tutor.getId());
+
             //setting session to expiry in 30 mins
             session.setMaxInactiveInterval(30*60);
           

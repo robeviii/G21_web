@@ -14,6 +14,26 @@ public class Alumno extends Usuario{
     private double nota_media;
     private String nombre;
     private long id_tutor;
+    private double nota_practica;
+    private String informe;
+
+    public String getInforme() {
+        return informe;
+    }
+
+    public void setInforme(String informe) {
+        this.informe = informe;
+    }
+
+    public double getNota_practica() {
+        return nota_practica;
+    }
+
+    public void setNota_practica(double nota_practica) {
+        this.nota_practica = nota_practica;
+    }
+  
+
 
     public long getId() {
         return id;

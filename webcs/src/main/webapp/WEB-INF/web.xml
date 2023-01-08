@@ -17,20 +17,28 @@
         <url-pattern>/panelTutor</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>InicioServlet</servlet-name>
-        <servlet-class>controller.InicioServlet</servlet-class>
+        <servlet-name>ControladorInicio</servlet-name>
+        <servlet-class>controller.ControladorInicio</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>InicioServlet</servlet-name>
+        <servlet-name>ControladorInicio</servlet-name>
         <url-pattern>/inicio</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>controller.LoginServlet</servlet-class>
+        <servlet-name>ControladorLogin</servlet-name>
+        <servlet-class>controller.ControladorLogin</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>LoginServlet</servlet-name>
+        <servlet-name>ControladorLogin</servlet-name>
         <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ControladorTutor</servlet-name>
+        <servlet-class>controller.ControladorTutor</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ControladorTutor</servlet-name>
+        <url-pattern>/ControladorTutor</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

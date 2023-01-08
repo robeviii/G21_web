@@ -19,7 +19,7 @@ import util.Log;
  *
  * @author victor
  */
-public class AlumnoDao implements Dao<Alumno>{
+public class AlumnoDao{
     
     private Connection connection;
 
@@ -29,8 +29,7 @@ public class AlumnoDao implements Dao<Alumno>{
         Log.logdb.info("Conectado!\n");
     }
 
-    @Override
-    public Alumno get(long id) {
+    public Alumno obtener(long id) {
         Alumno alumno = new Alumno();
         if (connection != null)
         {
@@ -43,6 +42,8 @@ public class AlumnoDao implements Dao<Alumno>{
                     alumno.setNombre(rs.getString("nombre"));
                     alumno.setDni(rs.getString("dni"));
                     alumno.setId(id);
+                    alumno.setNota_practica(rs.getInt("nota_practica"));
+                    alumno.setInforme(rs.getString("informe"));
                     alumno.setId_tutor(rs.getLong("id_tutor"));
                     alumno.setNota_media(rs.getDouble("nota_media"));
                     alumno.setPassword(rs.getString("password"));
@@ -61,7 +62,7 @@ public class AlumnoDao implements Dao<Alumno>{
         }    
     }
     
-    public Alumno getByEmail(String email) {
+    public Alumno obtenerPorEmail(String email) {
         Alumno alumno = new Alumno();
         if (connection != null)
         {
@@ -70,13 +71,17 @@ public class AlumnoDao implements Dao<Alumno>{
                 preparedStatement.setString(1, email);
                 ResultSet rs = preparedStatement.executeQuery();
                 if (rs.next()) {
+                    
                     alumno.setEmail(email);
                     alumno.setNombre(rs.getString("nombre"));
                     alumno.setDni(rs.getString("dni"));
-                    alumno.setId(rs.getLong("id_alumno"));
+                    alumno.setNota_practica(rs.getInt("nota_practica"));
+                    alumno.setInforme(rs.getString("informe"));
                     alumno.setId_tutor(rs.getLong("id_tutor"));
                     alumno.setNota_media(rs.getDouble("nota_media"));
                     alumno.setPassword(rs.getString("password"));
+                    alumno.setId(rs.getLong("id_alumno"));
+                   
                     return alumno;
                 }
                 
@@ -92,53 +97,82 @@ public class AlumnoDao implements Dao<Alumno>{
         }
     }
 
-    @Override
-    public List<Alumno> getAll() {
-        List<Alumno> alumnos = new ArrayList<Alumno>();
-        if (connection != null)
-        {
-            try {
-                Statement statement = connection.createStatement();
-                ResultSet rs = statement.executeQuery("select * from alumno;");
-                while (rs.next()) {
-                    Alumno alumno = new Alumno();
-                    alumno.setEmail(rs.getString("email"));
-                    alumno.setNombre(rs.getString("nombre"));
-                    alumno.setDni(rs.getString("dni"));
-                    alumno.setId(rs.getLong("id_alumno"));
-                    alumno.setId_tutor(rs.getLong("id_tutor"));
-                    alumno.setNota_media(rs.getDouble("nota_media"));
-                    alumno.setPassword(rs.getString("password"));
+    public List<Alumno> listaAlumnos(long id_tutor) {
+        PreparedStatement ps;
+        ResultSet rs;
+        
+        List<Alumno> lista = new ArrayList<Alumno>();
+        
+        try{
+            ps = connection.prepareStatement("SELECT * from alumno where id_tutor=?;");
+            ps.setLong(1, id_tutor);
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
                 
-                    alumnos.add(alumno);
-                }
-            } catch (SQLException e) {
-                Log.logdb.error("SQL Exception: " + e + "\n");            
+                Alumno alumno = new Alumno();
+               
+                alumno.setEmail(rs.getString("email"));
+                alumno.setNombre(rs.getString("nombre"));
+                alumno.setDni(rs.getString("dni"));
+                alumno.setNota_practica(rs.getInt("nota_practica"));
+                alumno.setInforme(rs.getString("informe"));
+                alumno.setId_tutor(rs.getLong("id_tutor"));
+                alumno.setNota_media(rs.getDouble("nota_media"));
+                alumno.setPassword(rs.getString("password"));
+                alumno.setId(rs.getLong("id_alumno"));
+                
+                lista.add(alumno);
             }
-            return alumnos;
-        }
-        else
-        {
-            Log.logdb.error("No hay conexion con la bbdd\n");
+            
+            return lista;
+            
+        } catch(SQLException e){
+            
+            System.out.println(e.toString());
             return null;
+            
         }
     }
-
-    @Override
-    public void create(Alumno t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public boolean actualizarNota(Alumno alumno){
+        
+        PreparedStatement ps;        
+        
+        try{
+            ps = connection.prepareStatement("UPDATE alumno SET nota_practica=? WHERE id_alumno=?");
+            ps.setDouble(1, alumno.getNota_practica());
+            ps.setLong(2, alumno.getId());
+            ps.execute();
+            
+            return true;
+            
+        } catch(SQLException e){
+            
+            System.out.println(e.toString());
+            return false;
+            
+        }
+        
     }
-
-    @Override
-    public void update(Alumno t, String[] params) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void delete(Alumno t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
     
-    
+    public boolean actualizarInforme(Alumno alumno){
+        
+        PreparedStatement ps;        
+        
+        try{
+            ps = connection.prepareStatement("UPDATE alumno SET informe=? WHERE id_alumno=?");
+            ps.setString(1, alumno.getInforme());
+            ps.setLong(2, alumno.getId());
+            ps.execute();
+            
+            return true;
+            
+        } catch(SQLException e){
+            
+            System.out.println(e.toString());
+            return false;
+            
+        }
+        
+    }
 }

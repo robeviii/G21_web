@@ -18,9 +18,9 @@ import jakarta.servlet.http.HttpSession;
  *
  * @author victor
  */
-//@WebServlet(name = "InicioServlet", urlPatterns = {"/inicio"})
+@WebServlet(name = "ControladorInicio", urlPatterns = {"/inicio"})
 
-public class InicioServlet extends HttpServlet {
+public class ControladorInicio extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
