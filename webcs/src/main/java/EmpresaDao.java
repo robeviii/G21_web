@@ -1,9 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package dao;
 
+import dao.Dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,42 +7,48 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import model.Tutor;
+import model.Empresa;
 import util.DbUtil;
 import util.Log;
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 
 /**
  *
  * @author victor
  */
-public class TutorDao implements Dao<Tutor>{
+public class EmpresaDao implements Dao<Empresa>{
     
     private Connection connection;
 
-    public TutorDao() {
-        Log.logdb.info("Conectando para TutorDao...\n");
+    public EmpresaDao() {
+        Log.logdb.info("Conectando para EmpresaDao...\n");
         connection = DbUtil.getConnection();
         Log.logdb.info("Conectado!\n");
     }
 
     
     @Override
-    public Tutor get(String email) {
-        Tutor tutor = new Tutor();
+    public Empresa get(String email) {
+        Empresa empresa = new Empresa();
         if (connection != null)
         {
             try {
-                PreparedStatement preparedStatement = connection.prepareStatement("select * from tutor where email=?;");
+                PreparedStatement preparedStatement = connection.prepareStatement("select * from empresa where email=?;");
                 preparedStatement.setString(1, email);
                 ResultSet rs = preparedStatement.executeQuery();
                 if (rs.next()) {
-                    tutor.setEmail(email);
-                    tutor.setNombre(rs.getString("nombre"));
-                    tutor.setApellido(rs.getString("apellido"));
-                    tutor.setPassword(rs.getString("password"));
-                    tutor.setId(rs.getLong("id_tutor"));
-                    
-                    return tutor;
+                    empresa.setNombre(rs.getString("nombre"));
+                    empresa.setDireccion(rs.getString("direccion"));
+                    empresa.setWeb(rs.getString("web"));
+                    empresa.setTelefono(rs.getString("telefono"));
+                    empresa.setId_tutor(rs.getLong("id_tutor"));
+
+
+                    return empresa;
                 }
                 
             } catch (SQLException e) {
@@ -62,27 +64,27 @@ public class TutorDao implements Dao<Tutor>{
     }
 
     @Override
-    public List<Tutor> getAll() {
-        List<Tutor> tutores = new ArrayList<Tutor>();
+    public List<Empresa> getAll() {
+        List<Empresa> empresas = new ArrayList<Empresa>();
         if (connection != null)
         {
             try {
                 Statement statement = connection.createStatement();
-                ResultSet rs = statement.executeQuery("select * from tutor;");
+                ResultSet rs = statement.executeQuery("select * from empresa;");
                 while (rs.next()) {
-                    Tutor tutor = new Tutor();
-                    tutor.setEmail(rs.getString("email"));
-                    tutor.setNombre(rs.getString("nombre"));
-                    tutor.setApellido(rs.getString("apellido"));
-                    tutor.setPassword(rs.getString("password"));
-                    tutor.setId(rs.getLong("id_tutor"));
+                    Empresa empresa = new Empresa();
+                    empresa.setNombre(rs.getString("nombre"));
+                    empresa.setDireccion(rs.getString("direccion"));
+                    empresa.setWeb(rs.getString("web"));
+                    empresa.setTelefono(rs.getString("telefono"));
+                    empresa.setId_tutor(rs.getLong("id_tutor"));
 
-                    tutores.add(tutor);
+                    empresas.add(empresa);
                 }
             } catch (SQLException e) {
                 Log.logdb.error("SQL Exception: " + e + "\n");            
             }
-            return tutores;
+            return empresas;
         }
         else
         {
@@ -92,18 +94,17 @@ public class TutorDao implements Dao<Tutor>{
     }
 
     @Override
-    public void create(Tutor t) {
+    public void create(Empresa t) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void update(Tutor t, String[] params) {
+    public void update(Empresa t, String[] params) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void delete(Tutor t) {
+    public void delete(Empresa t) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
 }

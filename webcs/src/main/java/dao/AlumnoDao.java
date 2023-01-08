@@ -80,8 +80,6 @@ public class AlumnoDao implements Dao<Alumno>{
                     alumno.setNota_media(rs.getDouble("nota_media"));
                     alumno.setPassword(rs.getString("password"));
                 
-        
-                    
                     alumnos.add(alumno);
                 }
             } catch (SQLException e) {
