@@ -9,6 +9,14 @@
         <url-pattern>/panelAlumno</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>PanelControlTutorServlet</servlet-name>
+        <servlet-class>controller.PanelControlTutorServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PanelControlTutorServlet</servlet-name>
+        <url-pattern>/panelTutor</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>InicioServlet</servlet-name>
         <servlet-class>controller.InicioServlet</servlet-class>
     </servlet>
