@@ -11,7 +11,7 @@ package model;
  */
 public class Empresa {
     
-    public int tutorid, id_tutor;
+    private int id_tutor;
     private String nombre, direccion, ambito, web, telefono, nalumnos, horario, duracion;
 
     public int getId_tutor() {
@@ -20,14 +20,6 @@ public class Empresa {
 
     public void setId_tutor(int id_tutor) {
         this.id_tutor = id_tutor;
-    }
-    
-    public int getTutorid() {
-        return tutorid;
-    }
-
-    public void setTutorid(int tutorid) {
-        this.tutorid = tutorid;
     }
 
     public String getNombre() {

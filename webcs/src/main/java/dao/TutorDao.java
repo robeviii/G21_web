@@ -19,7 +19,7 @@ import util.Log;
  *
  * @author victor
  */
-public class TutorDao implements Dao<Tutor>{
+public class TutorDao{
     
     private Connection connection;
 
@@ -29,8 +29,7 @@ public class TutorDao implements Dao<Tutor>{
         Log.logdb.info("Conectado!\n");
     }
 
-    
-    public Tutor getByEmail(String email) {
+    public Tutor obtenerPorEmail(String email) {
         Tutor tutor = new Tutor();
         if (connection != null)
         {
@@ -60,8 +59,7 @@ public class TutorDao implements Dao<Tutor>{
         }
     }
 
-    @Override
-    public List<Tutor> getAll() {
+    public List<Tutor> listaTutor() {
         List<Tutor> tutores = new ArrayList<Tutor>();
         if (connection != null)
         {
@@ -90,8 +88,7 @@ public class TutorDao implements Dao<Tutor>{
         }
     }
 
-    @Override
-    public void create(Tutor t) {
+    public void insertar(Tutor t) {
         PreparedStatement ps;        
         
         try{
@@ -108,22 +105,5 @@ public class TutorDao implements Dao<Tutor>{
         }
         
     }
-
-    @Override
-    public void update(Tutor t, String[] params) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void delete(Tutor t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public Tutor get(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
-    
     
 }

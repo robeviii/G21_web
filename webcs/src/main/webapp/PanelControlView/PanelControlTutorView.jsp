@@ -26,10 +26,10 @@
                     <a class="nav-link" href="/panelTutor">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/altaEmpresa">Alta empresa</a>
+                    <a class="nav-link" href="/ControladorTutor?accion=alta_empresa">Alta empresa</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/finPracticas">Finalizar practicas</a>
+                    <a class="nav-link" href="/ControladorTutor?accion=finalizar_practicas">Finalizar practicas</a>
                 </li>
                 
             </ul>
@@ -38,7 +38,7 @@
                 <i class="fa-solid fa-user"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item" href="/login">Cerrar sesión</a></li>
+                    <li><a class="dropdown-item" href="/login?cerrarSesion=true">Cerrar sesión</a></li>
                 </ul>
             </div>
             
