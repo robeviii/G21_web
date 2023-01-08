@@ -1,3 +1,4 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -6,14 +7,28 @@ package model;
 
 /**
  *
- * @author victor
+ * @author 34646
  */
 public class Empresa {
-    private String nombre;
-    private String direccion;
-    private String web;
-    private String telefono;
-    private long id_tutor;
+    
+    public int tutorid, id_tutor;
+    private String nombre, direccion, ambito, web, telefono, nalumnos, horario, duracion;
+
+    public int getId_tutor() {
+        return id_tutor;
+    }
+
+    public void setId_tutor(int id_tutor) {
+        this.id_tutor = id_tutor;
+    }
+    
+    public int getTutorid() {
+        return tutorid;
+    }
+
+    public void setTutorid(int tutorid) {
+        this.tutorid = tutorid;
+    }
 
     public String getNombre() {
         return nombre;
@@ -29,6 +44,14 @@ public class Empresa {
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+
+    public String getAmbito() {
+        return ambito;
+    }
+
+    public void setAmbito(String ambito) {
+        this.ambito = ambito;
     }
 
     public String getWeb() {
@@ -47,12 +70,30 @@ public class Empresa {
         this.telefono = telefono;
     }
 
-    public long getId_tutor() {
-        return id_tutor;
+    public String getNalumnos() {
+        return nalumnos;
     }
 
-    public void setId_tutor(long id_tutor) {
-        this.id_tutor = id_tutor;
+    public void setNalumnos(String nalumnos) {
+        this.nalumnos = nalumnos;
     }
+
+    public String getHorario() {
+        return horario;
+    }
+
+    public void setHorario(String horario) {
+        this.horario = horario;
+    }
+
+    public String getDuracion() {
+        return duracion;
+    }
+
+    public void setDuracion(String duracion) {
+        this.duracion = duracion;
+    }
+    
+    
     
 }
