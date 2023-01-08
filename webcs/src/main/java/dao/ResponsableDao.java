@@ -11,7 +11,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import model.Tutor;
+import model.Alumno;
+import model.Responsable;
 import util.DbUtil;
 import util.Log;
 
@@ -19,32 +20,34 @@ import util.Log;
  *
  * @author victor
  */
-public class TutorDao implements Dao<Tutor>{
+public class ResponsableDao implements Dao<Responsable>{
     
     private Connection connection;
 
-    public TutorDao() {
-        Log.logdb.info("Conectando para TutorDao...\n");
+    public ResponsableDao() {
+        Log.logdb.info("Conectando para ResponsableDao...\n");
         connection = DbUtil.getConnection();
         Log.logdb.info("Conectado!\n");
     }
 
     
     @Override
-    public Tutor get(String email) {
-        Tutor tutor = new Tutor();
+    public Responsable get(String email) {
+        Responsable responsable = new Responsable();
         if (connection != null)
         {
             try {
-                PreparedStatement preparedStatement = connection.prepareStatement("select * from tutor where email=?;");
+                PreparedStatement preparedStatement = connection.prepareStatement("select * from responsable where email=?;");
                 preparedStatement.setString(1, email);
                 ResultSet rs = preparedStatement.executeQuery();
                 if (rs.next()) {
-                    tutor.setEmail(email);
-                    tutor.setNombre(rs.getString("nombre"));
-                    tutor.setApellido(rs.getString("apellido"));
-                    tutor.setPassword(rs.getString("password"));
-                    return tutor;
+                    responsable.setEmail(email);
+                    responsable.setNombre(rs.getString("nombre"));
+                    responsable.setApellido(rs.getString("apellido"));
+                    responsable.setPassword(rs.getString("password"));
+                    responsable.setId(rs.getLong("id_responsable"));
+
+                    return responsable;
                 }
                 
             } catch (SQLException e) {
@@ -60,28 +63,28 @@ public class TutorDao implements Dao<Tutor>{
     }
 
     @Override
-    public List<Tutor> getAll() {
-        List<Tutor> tutores = new ArrayList<Tutor>();
+    public List<Responsable> getAll() {
+        List<Responsable> responsables = new ArrayList<Responsable>();
         if (connection != null)
         {
             try {
                 Statement statement = connection.createStatement();
-                ResultSet rs = statement.executeQuery("select * from tutor;");
+                ResultSet rs = statement.executeQuery("select * from responsable;");
                 while (rs.next()) {
-                    Tutor tutor = new Tutor();
-                    tutor.setEmail(rs.getString("email"));
-                    tutor.setNombre(rs.getString("nombre"));
-                    tutor.setApellido(rs.getString("apellido"));
-                    tutor.setPassword(rs.getString("password"));
-                    
+                    Responsable responsable = new Responsable();
+                    responsable.setEmail(rs.getString("email"));
+                    responsable.setNombre(rs.getString("nombre"));
+                    responsable.setId(rs.getLong("id_responsable"));
+                    responsable.setPassword(rs.getString("password"));
+                
         
                     
-                    tutores.add(tutor);
+                    responsables.add(responsable);
                 }
             } catch (SQLException e) {
                 Log.logdb.error("SQL Exception: " + e + "\n");            
             }
-            return tutores;
+            return responsables;
         }
         else
         {
@@ -91,18 +94,17 @@ public class TutorDao implements Dao<Tutor>{
     }
 
     @Override
-    public void create(Tutor t) {
+    public void create(Responsable t) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void update(Tutor t, String[] params) {
+    public void update(Responsable t, String[] params) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void delete(Tutor t) {
+    public void delete(Responsable t) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
 }
