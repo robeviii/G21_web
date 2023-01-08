@@ -11,9 +11,9 @@ import java.util.List;
  * @author victor
  */
 public interface Dao<T> {
-    
-    public T get(String email);
-    
+        
+    public T get(long id);
+
     List<T> getAll();
     
     public void create(T t);

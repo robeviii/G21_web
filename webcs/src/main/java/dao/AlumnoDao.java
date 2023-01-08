@@ -29,9 +29,39 @@ public class AlumnoDao implements Dao<Alumno>{
         Log.logdb.info("Conectado!\n");
     }
 
-    
     @Override
-    public Alumno get(String email) {
+    public Alumno get(long id) {
+        Alumno alumno = new Alumno();
+        if (connection != null)
+        {
+            try {
+                PreparedStatement preparedStatement = connection.prepareStatement("select * from alumno where id_alumno=?;");
+                preparedStatement.setLong(1, id);
+                ResultSet rs = preparedStatement.executeQuery();
+                if (rs.next()) {
+                    alumno.setEmail(rs.getString("email"));
+                    alumno.setNombre(rs.getString("nombre"));
+                    alumno.setDni(rs.getString("dni"));
+                    alumno.setId(id);
+                    alumno.setId_tutor(rs.getLong("id_tutor"));
+                    alumno.setNota_media(rs.getDouble("nota_media"));
+                    alumno.setPassword(rs.getString("password"));
+                    return alumno;
+                }
+                
+            } catch (SQLException e) {
+                Log.logdb.error("SQL Exception: " + e + "\n");
+            }
+            return null;
+        }
+        else
+        {
+            Log.logdb.error("No hay conexion con la bbdd\n");
+            return null;
+        }    
+    }
+    
+    public Alumno getByEmail(String email) {
         Alumno alumno = new Alumno();
         if (connection != null)
         {
@@ -80,8 +110,6 @@ public class AlumnoDao implements Dao<Alumno>{
                     alumno.setNota_media(rs.getDouble("nota_media"));
                     alumno.setPassword(rs.getString("password"));
                 
-        
-                    
                     alumnos.add(alumno);
                 }
             } catch (SQLException e) {
@@ -110,5 +138,7 @@ public class AlumnoDao implements Dao<Alumno>{
     public void delete(Alumno t) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    
     
 }

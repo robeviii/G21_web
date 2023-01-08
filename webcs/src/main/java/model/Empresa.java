@@ -1,3 +1,4 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -12,21 +13,6 @@ public class Empresa {
     
     public int tutorid, id_tutor;
     private String nombre, direccion, ambito, web, telefono, nalumnos, horario, duracion;
-    
-    public Empresa (int tutorid, String nombre, String direccion, String ambito, String web, String telefono, String nalumnos, String horario, String duracion, int id_tutor){
-        
-        this.tutorid=tutorid;
-        this.nombre=nombre;
-        this.direccion=direccion;
-        this.telefono=telefono;
-        this.web=web;
-        this.ambito=ambito;
-        this.nalumnos=nalumnos;
-        this.horario=horario;
-        this.duracion=duracion;
-        this.id_tutor=id_tutor;
-        
-    }
 
     public int getId_tutor() {
         return id_tutor;
