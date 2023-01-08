@@ -30,8 +30,7 @@ public class TutorDao implements Dao<Tutor>{
     }
 
     
-    @Override
-    public Tutor get(String email) {
+    public Tutor getByEmail(String email) {
         Tutor tutor = new Tutor();
         if (connection != null)
         {
@@ -103,6 +102,11 @@ public class TutorDao implements Dao<Tutor>{
 
     @Override
     public void delete(Tutor t) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public Tutor get(long id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     

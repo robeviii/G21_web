@@ -108,7 +108,7 @@ public class LoginServlet extends HttpServlet {
     }// </editor-fold>
     
     private boolean buscaAlumno(String email, String pwd, HttpServletRequest request){
-        Alumno alumno = daoAlumno.get(email);
+        Alumno alumno = daoAlumno.getByEmail(email);
         
         if(alumno != null && alumno.getPassword().equals(pwd)){
             Log.log.info("alumno logueado con exito");
@@ -126,7 +126,7 @@ public class LoginServlet extends HttpServlet {
         return false;
     }
     private boolean buscaTutor(String email, String pwd, HttpServletRequest request){
-        Tutor tutor = daoTutor.get(email);
+        Tutor tutor = daoTutor.getByEmail(email);
         
         if (tutor != null && tutor.getPassword().equals(pwd)){
             Log.log.info("tutor logueado con exito");

@@ -11,7 +11,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import model.Alumno;
 import model.Responsable;
 import util.DbUtil;
 import util.Log;
@@ -31,8 +30,8 @@ public class ResponsableDao implements Dao<Responsable>{
     }
 
     
-    @Override
-    public Responsable get(String email) {
+    
+    public Responsable getByEmail(String email) {
         Responsable responsable = new Responsable();
         if (connection != null)
         {
@@ -105,6 +104,11 @@ public class ResponsableDao implements Dao<Responsable>{
 
     @Override
     public void delete(Responsable t) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public Responsable get(long id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
