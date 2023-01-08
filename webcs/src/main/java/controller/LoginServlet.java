@@ -17,7 +17,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import model.Alumno;
 import model.Tutor;
-import model.Usuario;
 import util.Log;
 
 /**
@@ -85,7 +84,7 @@ public class LoginServlet extends HttpServlet {
         
         if (buscaTutor(email, pwd, request)){
             //Panel de control test
-            response.sendRedirect("test/testDashboard.jsp");            
+            response.sendRedirect("/panelTutor");            
 
             return;
         }else {
