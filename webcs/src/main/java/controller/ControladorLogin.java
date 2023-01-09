@@ -6,6 +6,7 @@ package controller;
  */
 
 import dao.AlumnoDao;
+import dao.ResponsableDao;
 import dao.TutorDao;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.annotation.WebServlet;
@@ -16,6 +17,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import model.Alumno;
+import model.Responsable;
 import model.Tutor;
 import util.Log;
 
@@ -30,12 +32,13 @@ public class ControladorLogin extends HttpServlet {
 
     private TutorDao daoTutor;
     private AlumnoDao daoAlumno;
+    private ResponsableDao daoResponsable;
     
     public ControladorLogin() {
         super();
         daoTutor = new TutorDao();
         daoAlumno = new AlumnoDao();
-
+        daoResponsable = new ResponsableDao();
     }
     
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -92,6 +95,10 @@ public class ControladorLogin extends HttpServlet {
             response.sendRedirect("/panelTutor");            
 
             return;
+        }else if (buscaResponsable(email, pwd, request)){
+            response.sendRedirect("/panelResponsable");            
+
+            return;
         }else {
             Log.log.info("Error de login");
             HttpSession session = request.getSession();
@@ -124,6 +131,23 @@ public class ControladorLogin extends HttpServlet {
             session.setAttribute("email", email);
             session.setAttribute("nota_media", alumno.getNota_media());
             session.setAttribute("id_tutor", alumno.getId_tutor());
+            //setting session to expiry in 30 mins
+            session.setMaxInactiveInterval(30*60); 
+
+            return true;
+        }
+        return false;
+    }
+    private boolean buscaResponsable(String email, String pwd, HttpServletRequest request){
+        Responsable responsable = daoResponsable.obtenerPorEmail(email);
+        
+        if(responsable != null && responsable.getPassword().equals(pwd)){
+            Log.log.info("alumno logueado con exito");
+            HttpSession session = request.getSession();
+            session.setAttribute("id_responsable",responsable.getId());
+            session.setAttribute("nombre", responsable.getNombre());
+            session.setAttribute("email", email);
+            session.setAttribute("apellido", responsable.getApellido());
             //setting session to expiry in 30 mins
             session.setMaxInactiveInterval(30*60); 
 

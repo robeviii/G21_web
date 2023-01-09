@@ -56,7 +56,7 @@ public class ControladorAlumno extends HttpServlet {
         AlumnoDao alumnoDao = new AlumnoDao();
         EmpresaDao empresaDao = new EmpresaDao();
         PracticasDao practicaDao = new PracticasDao();
-        String accion = request.getParameter("action");
+        String accion = request.getParameter("accion");
         RequestDispatcher dispatcher=null;
 
         if("ver_informe".equals(accion)){

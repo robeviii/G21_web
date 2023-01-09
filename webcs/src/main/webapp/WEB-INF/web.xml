@@ -1,13 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="5.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd">
     <servlet>
+        <servlet-name>ControladorAlumno</servlet-name>
+        <servlet-class>controller.ControladorAlumno</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ControladorAlumno</servlet-name>
+        <url-pattern>/ControladorAlumno</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ControladorResponsable</servlet-name>
+        <servlet-class>controller.ControladorResponsable</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ControladorResponsable</servlet-name>
+        <url-pattern>/ControladorResponsable</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>PanelControlAlumnoServlet</servlet-name>
         <servlet-class>controller.PanelControlAlumnoServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ControladorAlumno</servlet-name>
-        <servlet-class>controller.ControladorAlumno</servlet-class>
+        <servlet-name>PanelControlResponsableServlet</servlet-name>
+        <servlet-class>controller.PanelControlResponsableServlet</servlet-class>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>PanelControlResponsableServlet</servlet-name>
+        <url-pattern>/panelResponsable</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>PanelControlAlumnoServlet</servlet-name>
         <url-pattern>/panelAlumno</url-pattern>
@@ -44,10 +64,7 @@
         <servlet-name>ControladorTutor</servlet-name>
         <url-pattern>/ControladorTutor</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ControladorAlumno</servlet-name>
-        <url-pattern>/ControladorAlumno</url-pattern>
-    </servlet-mapping>
+    
     <session-config>
         <session-timeout>
             30

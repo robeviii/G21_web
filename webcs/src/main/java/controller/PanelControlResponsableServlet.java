@@ -1,8 +1,9 @@
+package controller;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package controller;
 
 import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
@@ -12,15 +13,15 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 /**
  *
  * @author victor
  */
-@WebServlet(name = "ControladorInicio", urlPatterns = {"/inicio"})
 
-public class ControladorInicio extends HttpServlet {
+@WebServlet(name = "PanelControlResponsableServlet", urlPatterns = {"/panelResponsable"})
+
+public class PanelControlResponsableServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,7 +32,8 @@ public class ControladorInicio extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-   
+    
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -44,12 +46,15 @@ public class ControladorInicio extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession sesion = request.getSession();
-       
-       
-        response.sendRedirect("/login");
+        response.setHeader("Cache-Control", "no-cache, no-store");
         
-        
+        if(request.getSession().getAttribute("email") == null){
+            response.sendRedirect("/login");
+            return;
+        }
+        String forward = "PanelControlView/PanelControlResponsableView.jsp";
+        RequestDispatcher view = request.getRequestDispatcher(forward);
+        view.forward(request, response);
     }
 
     /**
@@ -63,7 +68,7 @@ public class ControladorInicio extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        doGet(request, response);
+
     }
 
     /**

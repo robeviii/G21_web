@@ -13,6 +13,31 @@
         <title>Lista de empresas</title>
     </head>
     <body>
+        <nav class="navbar navbar-expand navbar-light bg-light">
+
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/panelResponsable">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/ControladorResponsable?accion=mostrarempresas">Mostrar empresas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/ControladorResponsable?accion=organizaralumnos">Organizar Alumnos</a>
+                </li>
+                
+            </ul>
+             <div class="dropdown">
+                <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-user"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="/login?cerrarSesion=true">Cerrar sesión</a></li>
+                </ul>
+            </div>
+            
+        </nav>
         <h1>Lista de empresas</h1>
         <br /><br />
         <form action="action" method="POST" autocomplete="off">
@@ -38,7 +63,7 @@
                             <td><c:out value="${empresa.horario}"/></td>
                             <td><c:out value="${empresa.duracion}"/></td>
                             <td><c:out value="${empresa.id_tutor}"/></td>
-                            <td><a href="responsablecontroller?accion=mostraralumnos&id_tutor=<c:out value="${empresa.id_tutor}" />">Ver alumnos</a></td>
+                            <td><a href="/ControladorResponsable?accion=mostraralumnos&id_tutor=${empresa.id_tutor}"/>Ver alumnos</a></td>
                         </tr>
 
                     </c:forEach>
@@ -48,8 +73,6 @@
             </table>
 
         </form>
-        
-        <a href="responsablecontroller?accion=volverindex">Volver al índice</a>
-        
+                
     </body>
 </html>

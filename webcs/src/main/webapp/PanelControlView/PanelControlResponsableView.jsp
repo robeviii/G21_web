@@ -1,16 +1,21 @@
 <%-- 
-    Document   : listaalumnos
-    Created on : 9 ene 2023, 13:37:25
-    Author     : 34646
+    Document   : PanelControlResponsableView
+    Created on : 9 ene 2023, 21:38:17
+    Author     : victor
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Lista de alumnos</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Panel de Control</title>
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet" />
+
     </head>
     <body>
         <nav class="navbar navbar-expand navbar-light bg-light">
@@ -38,39 +43,26 @@
             </div>
             
         </nav>
-        <h1>Lista de alumnos</h1>
-         <br /><br />
-        <form action="action" method="POST" autocomplete="off">
-            
-            <table border="1" width="80%">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Dni</th>
-                        <th>Nota media</th>
-                        <th>Email</th>
-                        <th>id tutor</th>
-                    </tr>
-                </thead>
-                
+        
+        <div class="w-50 mx-auto pt-5">
+            <table id="informacion" class="table table-light table-bordered">
                 <tbody>
-                    
-                    <c:forEach var="alumno" items="${lista}">
-                        <tr>
-                            <td><c:out value="${alumno.nombre}"/></td>
-                            <td><c:out value="${alumno.dni}"/></td>
-                            <td><c:out value="${alumno.nota_media}"/></td>
-                            <td><c:out value="${alumno.email}"/></td>
-                            <td><c:out value="${alumno.id_tutor}"/></td>
-                        </tr>
-
-                    </c:forEach>
-
+                <tr>
+                    <td>Nombre</td>
+                    <td>${nombre}</td>        
+                </tr>
+                <tr>
+                    <td>Apellido</td>
+                    <td>${apellido}</td>        
+                 </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>${email}</td>        
+                 </tr>
                 </tbody>
- 
             </table>
+        </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
-        </form>
-         
     </body>
 </html>
