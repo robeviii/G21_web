@@ -27,7 +27,7 @@
                     <a class="nav-link" href="/panelAlumno">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/solicitudPracticas">Solicitud</a>
+                    <a class="nav-link" href="/ControladorAlumno?action=solicitud_practicas">Solicitud</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/ControladorAlumno?action=ver_informe">Informes</a>
@@ -47,7 +47,7 @@
         <div class="w-75 mx-auto pt-5 ">
             <h1 class="my-5">Informe</h1>
             <div class="bg-secondary-subtle rounded">
-                <p><c:out default="Todavia no se ha emitido un informe" value="${informe}"></c:out></p>
+                <p><c:out default="Todavia no se ha emitido un informe" value="${sessionScope.informe}"></c:out></p>
             </div>
         </div>
         

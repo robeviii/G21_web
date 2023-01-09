@@ -8,9 +8,9 @@ package model;
  *
  * @author victor
  */
-public class Solicitud {
+public class Practica {
     private long id_alumno;
-    private long id_practica;
+    private String nombre_empresa;
     private int preferencia;
 
     public long getId_alumno() {
@@ -21,13 +21,15 @@ public class Solicitud {
         this.id_alumno = id_alumno;
     }
 
-    public long getId_practica() {
-        return id_practica;
+    public String getNombre_empresa() {
+        return nombre_empresa;
     }
 
-    public void setId_practica(long id_practica) {
-        this.id_practica = id_practica;
+    public void setNombre_empresa(String nombre_empresa) {
+        this.nombre_empresa = nombre_empresa;
     }
+
+    
 
     public int getPreferencia() {
         return preferencia;

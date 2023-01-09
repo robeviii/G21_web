@@ -118,6 +118,7 @@ public class ControladorLogin extends HttpServlet {
         if(alumno != null && alumno.getPassword().equals(pwd)){
             Log.log.info("alumno logueado con exito");
             HttpSession session = request.getSession();
+            session.setAttribute("id_alumno",alumno.getId());
             session.setAttribute("nombre", alumno.getNombre());
             session.setAttribute("dni", alumno.getDni());
             session.setAttribute("email", email);
