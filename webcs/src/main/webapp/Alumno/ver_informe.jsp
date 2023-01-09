@@ -1,21 +1,22 @@
 <%-- 
-    Document   : PanelControlAlumnoView
-    Created on : 29 dic 2022, 18:38:17
+    Document   : ver_informe
+    Created on : 9 ene 2023, 13:05:22
     Author     : victor
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Panel de Control</title>
+        <title>Informe del Alumno</title>
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet">
         <link href="styles.css" rel="stylesheet" />
-
     </head>
     <body>
         <nav class="navbar navbar-expand navbar-light bg-light">
@@ -43,30 +44,14 @@
             </div>
             
         </nav>
-        
-        <div class="w-50 mx-auto pt-5">
-            <table id="informacion" class="table table-light table-bordered">
-                <tbody>
-                <tr>
-                    <td>Nombre</td>
-                    <td>${nombre}</td>        
-                </tr>
-                <tr>
-                    <td>Dni</td>
-                    <td>${dni}</td>        
-                </tr>
-                <tr>
-                    <td>Nota media</td>
-                    <td>${nota_media}</td>        
-                 </tr>
-                <tr>
-                    <td>Email</td>
-                    <td>${email}</td>        
-                 </tr>
-                </tbody>
-            </table>
+        <div class="w-75 mx-auto pt-5 ">
+            <h1 class="my-5">Informe</h1>
+            <div class="bg-secondary-subtle rounded">
+                <p><c:out default="Todavia no se ha emitido un informe" value="${informe}"></c:out></p>
+            </div>
         </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    
     </body>
 </html>

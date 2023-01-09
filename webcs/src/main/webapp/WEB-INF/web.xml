@@ -4,6 +4,10 @@
         <servlet-name>PanelControlAlumnoServlet</servlet-name>
         <servlet-class>controller.PanelControlAlumnoServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControladorAlumno</servlet-name>
+        <servlet-class>controller.ControladorAlumno</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PanelControlAlumnoServlet</servlet-name>
         <url-pattern>/panelAlumno</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>ControladorTutor</servlet-name>
         <url-pattern>/ControladorTutor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorAlumno</servlet-name>
+        <url-pattern>/ControladorAlumno</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
