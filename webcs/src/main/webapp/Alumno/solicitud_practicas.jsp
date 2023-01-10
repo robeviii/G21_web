@@ -26,10 +26,10 @@
                     <a class="nav-link" href="/panelAlumno">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/ControladorAlumno?action=solicitud_practicas">Solicitud</a>
+                    <a class="nav-link" href="/ControladorAlumno?accion=solicitud_practicas">Solicitud</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/ControladorAlumno?action=ver_informe">Informes</a>
+                    <a class="nav-link" href="/ControladorAlumno?accion=ver_informe">Informes</a>
                 </li>
                 
             </ul>
@@ -46,7 +46,7 @@
         <h1>Solicitud de practicas</h1>
         
         <h3>Empresas Solicitadas</h3>
-        <form action="ControladorAlumno?action=eliminar_practicas" method="POST" autocomplete="off">
+        <form action="ControladorAlumno?accion=eliminar_practicas" method="POST" autocomplete="off">
             <table border="1" width="80%">
                 <thead>
                     <tr>
@@ -90,7 +90,7 @@
             </table>
         </form>
         <h3>Empresas Disponibles</h3>
-        <form action="ControladorAlumno?action=añadir_practicas" method="POST" autocomplete="off">
+        <form action="ControladorAlumno?accion=añadir_practicas" method="POST" autocomplete="off">
             <table border="1" width="80%">
                 <thead>
                     <tr>
