@@ -62,6 +62,23 @@ public class AlumnoDao{
         }    
     }
     
+    public void asignarEmpresa(long id_alumno, String nombre_empresa){
+        PreparedStatement ps;        
+        
+        try{
+            ps = connection.prepareStatement("UPDATE alumno SET nombre_empresa_practicas=? WHERE id_alumno=?;");
+            ps.setString(1, nombre_empresa);
+            ps.setLong(2, id_alumno);
+            ps.execute();
+            
+            
+        } catch(SQLException e){
+            
+            System.out.println(e.toString());
+            
+        }
+    }
+    
     public Alumno obtenerPorEmail(String email) {
         Alumno alumno = new Alumno();
         if (connection != null)
