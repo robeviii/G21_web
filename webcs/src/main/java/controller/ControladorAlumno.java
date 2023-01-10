@@ -122,7 +122,7 @@ public class ControladorAlumno extends HttpServlet {
                 
             }
             
-            response.sendRedirect("/ControladorAlumno?action=solicitud_practicas");
+            response.sendRedirect("/ControladorAlumno?accion=solicitud_practicas");
         }else if("eliminar_practicas".equals(accion)){
             
             List<String> parametros = new ArrayList<>(request.getParameterMap().keySet());
@@ -134,7 +134,7 @@ public class ControladorAlumno extends HttpServlet {
             
             practicaDao.eliminarPractica(practica);
             
-            response.sendRedirect("/ControladorAlumno?action=solicitud_practicas");
+            response.sendRedirect("/ControladorAlumno?accion=solicitud_practicas");
         }
         
         else {

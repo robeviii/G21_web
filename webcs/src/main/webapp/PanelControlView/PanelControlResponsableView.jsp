@@ -29,7 +29,7 @@
                     <a class="nav-link" href="/ControladorResponsable?accion=mostrarempresas">Mostrar empresas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/ControladorResponsable?accion=organizaralumnos">Organizar Alumnos</a>
+                    <a class="nav-link" href="/ControladorResponsable?accion=practicas">Asignar practicas</a>
                 </li>
                 
             </ul>
