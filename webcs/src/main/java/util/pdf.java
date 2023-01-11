@@ -13,16 +13,21 @@ import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfWriter;
+
+import dao.AlumnoDao;
+import dao.TutorDao;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.PrintWriter;
-import modelo.Alumno;
-import modelo.AlumnoDAO;
+
+import model.Alumno;
+import model.Tutor;
 
 
 
@@ -33,13 +38,15 @@ import modelo.AlumnoDAO;
 @WebServlet(name = "pdf", urlPatterns = {"/pdf"})
 public class pdf extends HttpServlet {
 
-
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("application/pdf");
+                response.setContentType("application/pdf");
         OutputStream out = response.getOutputStream();
-        AlumnoDAO alumnoDAO = new AlumnoDAO();
-        Alumno a = alumnoDAO.mostrarAlumno(1);
+        AlumnoDao alumnoDao = new AlumnoDao();
+        TutorDao tutorDao = new TutorDao();
+        Alumno a = alumnoDao.obtener(1);
+        Tutor t = tutorDao.obtener(a.getId_tutor());
         try{
             
             
@@ -51,7 +58,7 @@ public class pdf extends HttpServlet {
             
             
             //Logo
-            Image imagen = Image.getInstance("C:\\Users\\34646\\Documents\\NetBeansProjects\\tutor1\\src\\java\\imagen\\logo_uah.png");
+            Image imagen = Image.getInstance("imagen/logo_uah.png");
             imagen.setAlignment(Element.ALIGN_CENTER);
             imagen.scaleToFit(150, 150);
             documento.add(imagen);
@@ -71,8 +78,8 @@ public class pdf extends HttpServlet {
             
             //descripcion
             Paragraph par2 = new Paragraph();
-            Font fontdrescrip = new Font(Font.FontFamily.TIMES_ROMAN,15, Font.NORMAL,BaseColor.BLACK);
-            par2.add(new Phrase("Esto es un reporte del alumno " + a.getNombre(), fontdrescrip));
+            Font fontdescrip = new Font(Font.FontFamily.TIMES_ROMAN,15, Font.NORMAL,BaseColor.BLACK);
+            par2.add(new Phrase("Esto es un reporte del alumno " + a.getNombre(), fontdescrip));
             par2.setAlignment(Element.ALIGN_JUSTIFIED);
             par2.add(new Phrase(Chunk.NEWLINE));
             par2.add(new Phrase(Chunk.NEWLINE));
@@ -124,7 +131,7 @@ public class pdf extends HttpServlet {
             //Empresa
             Paragraph par11 = new Paragraph();
             //añadir aqui la funcion de mostrar empresa alumno
-            par11.add(new Phrase("   -Empresa: " + a.getNombre(), fontdatos));
+            par11.add(new Phrase("   -Empresa: " + a.getNombre_empresa_practicas(), fontdatos));
             par11.setAlignment(Element.ALIGN_JUSTIFIED);
             par11.add(new Phrase(Chunk.NEWLINE));
             par11.add(new Phrase(Chunk.NEWLINE));
@@ -132,7 +139,7 @@ public class pdf extends HttpServlet {
 
             //Nota practicas
             Paragraph par8 = new Paragraph();
-            par8.add(new Phrase("   -Nota en las practicas: " + a.getNotaprac(), fontdatos));
+            par8.add(new Phrase("   -Nota en las practicas: " + a.getNota_practica(), fontdatos));
             par8.setAlignment(Element.ALIGN_JUSTIFIED);
             par8.add(new Phrase(Chunk.NEWLINE));
             par8.add(new Phrase(Chunk.NEWLINE));
@@ -140,7 +147,7 @@ public class pdf extends HttpServlet {
             
             //Tutor Practicas
             Paragraph par9 = new Paragraph();
-            par9.add(new Phrase("   -Tutor de las practicas " + a.getId_tutor_al(), fontdatos));
+            par9.add(new Phrase("   -Tutor de las practicas " + t.getNombre() + " " + t.getApellido() , fontdatos));
             par9.setAlignment(Element.ALIGN_JUSTIFIED);
             par9.add(new Phrase(Chunk.NEWLINE));
             par9.add(new Phrase(Chunk.NEWLINE));
@@ -174,15 +181,8 @@ public class pdf extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
     }
 
     /**

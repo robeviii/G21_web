@@ -18,7 +18,6 @@ import jakarta.servlet.http.HttpSession;
  *
  * @author victor
  */
-@WebServlet(name = "ControladorInicio", urlPatterns = {"/inicio"})
 
 public class ControladorInicio extends HttpServlet {
 
@@ -47,7 +46,7 @@ public class ControladorInicio extends HttpServlet {
         HttpSession sesion = request.getSession();
        
        
-        response.sendRedirect("/login");
+        response.sendRedirect("login");
         
         
     }

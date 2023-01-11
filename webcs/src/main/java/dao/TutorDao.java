@@ -58,6 +58,35 @@ public class TutorDao{
             return null;
         }
     }
+    public Tutor obtener(long id) {
+        Tutor tutor = new Tutor();
+        if (connection != null)
+        {
+            try {
+                PreparedStatement preparedStatement = connection.prepareStatement("select * from tutor where id_tutor=?;");
+                preparedStatement.setLong(1, id);
+                ResultSet rs = preparedStatement.executeQuery();
+                if (rs.next()) {
+                    tutor.setEmail(rs.getString("email"));
+                    tutor.setNombre(rs.getString("nombre"));
+                    tutor.setApellido(rs.getString("apellido"));
+                    tutor.setPassword(rs.getString("password"));
+                    tutor.setId(id);
+                    
+                    return tutor;
+                }
+                
+            } catch (SQLException e) {
+                Log.logdb.error("SQL Exception: " + e + "\n");
+            }
+            return null;
+        }
+        else
+        {
+            Log.logdb.error("No hay conexion con la bbdd\n");
+            return null;
+        }
+    }
 
     public List<Tutor> listaTutor() {
         List<Tutor> tutores = new ArrayList<Tutor>();

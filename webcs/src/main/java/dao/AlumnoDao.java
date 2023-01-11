@@ -47,6 +47,7 @@ public class AlumnoDao{
                     alumno.setId_tutor(rs.getLong("id_tutor"));
                     alumno.setNota_media(rs.getDouble("nota_media"));
                     alumno.setPassword(rs.getString("password"));
+                    alumno.setNombre_empresa_practicas(rs.getString("nombre_empresa_practicas"));
                     return alumno;
                 }
                 
@@ -98,7 +99,8 @@ public class AlumnoDao{
                     alumno.setNota_media(rs.getDouble("nota_media"));
                     alumno.setPassword(rs.getString("password"));
                     alumno.setId(rs.getLong("id_alumno"));
-                   
+                    alumno.setNombre_empresa_practicas(rs.getString("nombre_empresa_practicas"));
+                  
                     return alumno;
                 }
                 
@@ -138,6 +140,7 @@ public class AlumnoDao{
                 alumno.setNota_media(rs.getDouble("nota_media"));
                 alumno.setPassword(rs.getString("password"));
                 alumno.setId(rs.getLong("id_alumno"));
+                alumno.setNombre_empresa_practicas(rs.getString("nombre_empresa_practicas"));
                 
                 lista.add(alumno);
             }

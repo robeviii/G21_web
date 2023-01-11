@@ -16,7 +16,6 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author victor
  */
-@WebServlet(name = "PanelControlAlumnoServlet", urlPatterns = {"/panelAlumno"})
 public class PanelControlAlumnoServlet extends HttpServlet {
 
     /**
@@ -48,7 +47,7 @@ public class PanelControlAlumnoServlet extends HttpServlet {
         response.setHeader("Cache-Control", "no-cache, no-store");
         
         if(request.getSession().getAttribute("email") == null){
-            response.sendRedirect("/login");
+            response.sendRedirect("login");
             return;
         }
         String forward = "PanelControlView/PanelControlAlumnoView.jsp";

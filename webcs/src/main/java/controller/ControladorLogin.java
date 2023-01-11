@@ -25,9 +25,7 @@ import util.Log;
  *
  * @author victor
  */
-@WebServlet(
-  name = "ControladorLogin", 
-  urlPatterns = "/login")
+
 public class ControladorLogin extends HttpServlet {
 
     private TutorDao daoTutor;
@@ -86,17 +84,17 @@ public class ControladorLogin extends HttpServlet {
         String pwd = request.getParameter("password");
         
         if (buscaAlumno(email, pwd, request)){
-            response.sendRedirect("/panelAlumno");            
+            response.sendRedirect("panelAlumno");            
 
             return;
         }
         
         else if (buscaTutor(email, pwd, request)){
-            response.sendRedirect("/panelTutor");            
+            response.sendRedirect("panelTutor");            
 
             return;
         }else if (buscaResponsable(email, pwd, request)){
-            response.sendRedirect("/panelResponsable");            
+            response.sendRedirect("panelResponsable");            
 
             return;
         }else {
@@ -104,7 +102,7 @@ public class ControladorLogin extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("nologin", true);
             
-            response.sendRedirect("/login");      
+            response.sendRedirect("login");      
                 
         }
     }
