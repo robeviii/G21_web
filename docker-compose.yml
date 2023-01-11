@@ -1,0 +1,22 @@
+services:
+  web: 
+    image: webcs
+    build: .
+    container_name: tomcat
+    ports:
+      - 8080:8080
+    depends_on:
+      - mariadb   
+
+  mariadb:
+    image: mariadb:latest
+    container_name: mariadb
+    volumes:
+      - ./bbdd:/docker-entrypoint-initdb.d
+    ports:
+    - 36:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: 'webcs'
+      MYSQL_USER: 'webcs'
+      MYSQL_PASSWORD: 'webcs'
+
