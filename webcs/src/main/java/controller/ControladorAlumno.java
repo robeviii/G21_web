@@ -29,7 +29,6 @@ import util.Log;
  *
  * @author victor
  */
-@WebServlet(name = "ControladorAlumno", urlPatterns = {"/ControladorAlumno"})
 
 public class ControladorAlumno extends HttpServlet {
 
@@ -49,7 +48,7 @@ public class ControladorAlumno extends HttpServlet {
         response.setHeader("Cache-Control", "no-cache, no-store");
         HttpSession session  = request.getSession();
         if(session.getAttribute("email") == null){
-            response.sendRedirect("/login");
+            response.sendRedirect("login");
             return;
         }
         
@@ -122,7 +121,7 @@ public class ControladorAlumno extends HttpServlet {
                 
             }
             
-            response.sendRedirect("/ControladorAlumno?accion=solicitud_practicas");
+            response.sendRedirect("ControladorAlumno?accion=solicitud_practicas");
         }else if("eliminar_practicas".equals(accion)){
             
             List<String> parametros = new ArrayList<>(request.getParameterMap().keySet());
@@ -134,7 +133,7 @@ public class ControladorAlumno extends HttpServlet {
             
             practicaDao.eliminarPractica(practica);
             
-            response.sendRedirect("/ControladorAlumno?accion=solicitud_practicas");
+            response.sendRedirect("ControladorAlumno?accion=solicitud_practicas");
         }
         
         else {

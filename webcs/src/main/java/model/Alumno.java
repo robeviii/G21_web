@@ -16,6 +16,7 @@ public class Alumno extends Usuario{
     private long id_tutor;
     private double nota_practica;
     private String informe;
+    private String nombre_empresa_practicas = null;
 
     public String getInforme() {
         return informe;
@@ -32,8 +33,15 @@ public class Alumno extends Usuario{
     public void setNota_practica(double nota_practica) {
         this.nota_practica = nota_practica;
     }
-  
 
+    public String getNombre_empresa_practicas() {
+        return nombre_empresa_practicas;
+    }
+
+    public void setNombre_empresa_practicas(String nombre_empresa_practicas) {
+        this.nombre_empresa_practicas = nombre_empresa_practicas;
+    }
+  
 
     public long getId() {
         return id;

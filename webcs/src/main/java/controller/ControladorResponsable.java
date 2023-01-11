@@ -27,7 +27,6 @@ import model.Practica;
  *
  * @author 34646
  */
-@WebServlet(name = "ControladorResponsable", urlPatterns = {"/ControladorResponsable"})
 public class ControladorResponsable extends HttpServlet {
     
 
@@ -39,7 +38,7 @@ public class ControladorResponsable extends HttpServlet {
         response.setHeader("Cache-Control", "no-cache, no-store");
         
         if(request.getSession().getAttribute("email") == null){
-            response.sendRedirect("/login");
+            response.sendRedirect("login");
             return;
         }
         
@@ -113,7 +112,7 @@ public class ControladorResponsable extends HttpServlet {
             
             
             
-            response.sendRedirect("/ControladorResponsable?accion=practicas");
+            response.sendRedirect("ControladorResponsable?accion=practicas");
             
         }else if("practicas".equals(accion)){
             List<Practica> practicas = practicasDao.listaPracticas();

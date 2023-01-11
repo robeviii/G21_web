@@ -23,7 +23,6 @@ import model.Empresa;
  *
  * @author 34646
  */
-@WebServlet(name = "ControladorTutor", urlPatterns = {"/ControladorTutor"})
 public class ControladorTutor extends HttpServlet {
 
     
@@ -35,7 +34,7 @@ public class ControladorTutor extends HttpServlet {
         response.setHeader("Cache-Control", "no-cache, no-store");
         
         if(request.getSession().getAttribute("email") == null){
-            response.sendRedirect("/login");
+            response.sendRedirect("login");
             return;
         }
         
