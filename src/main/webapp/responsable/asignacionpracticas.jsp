@@ -17,7 +17,7 @@
         <c:out value="${requestScope.hay_practicas}"></c:out>
         <c:choose>
             <c:when test="${requestScope.hay_practicas}">
-                <form action="/ControladorResponsable?accion=asignarpracticas" method="POST" autocomplete="off">
+                <form action="ControladorResponsable?accion=asignarpracticas" method="POST" autocomplete="off">
                     <button type="submit" value="Asignar">Asignar</button> 
                 </form>        
             </c:when>

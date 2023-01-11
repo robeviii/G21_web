@@ -18,13 +18,13 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/panelResponsable">Inicio</a>
+                    <a class="nav-link" href="panelResponsable">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/ControladorResponsable?accion=mostrarempresas">Mostrar empresas</a>
+                    <a class="nav-link" href="ControladorResponsable?accion=mostrarempresas">Mostrar empresas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/ControladorResponsable?accion=organizaralumnos">Organizar Alumnos</a>
+                    <a class="nav-link" href="ControladorResponsable?accion=organizaralumnos">Organizar Alumnos</a>
                 </li>
                 
             </ul>
@@ -33,7 +33,7 @@
                 <i class="fa-solid fa-user"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item" href="/login?cerrarSesion=true">Cerrar sesión</a></li>
+                    <li><a class="dropdown-item" href="login?cerrarSesion=true">Cerrar sesión</a></li>
                 </ul>
             </div>
             

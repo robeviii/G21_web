@@ -24,13 +24,13 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/panelAlumno">Inicio</a>
+                    <a class="nav-link" href="panelAlumno">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/ControladorAlumno?action=solicitud_practicas">Solicitud</a>
+                    <a class="nav-link" href="ControladorAlumno?action=solicitud_practicas">Solicitud</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/ControladorAlumno?action=ver_informe">Informes</a>
+                    <a class="nav-link" href="ControladorAlumno?action=ver_informe">Informes</a>
                 </li>
                 
             </ul>
@@ -39,7 +39,7 @@
                 <i class="fa-solid fa-user"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item" href="/login?cerrarSesion=true">Cerrar sesión</a></li>
+                    <li><a class="dropdown-item" href="login?cerrarSesion=true">Cerrar sesión</a></li>
                 </ul>
             </div>
             
