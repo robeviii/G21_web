@@ -122,7 +122,7 @@ INSERT INTO empresa (nombre_e, direccion, ambito, web, telefono, nalumnos, horar
 
 -- 15 alumnos sin practicas asignadas
 
-INSERT INTO alumno (id_alumno, nombre, nota_media, dni, id_tutor, email, password) VALUES (1, 'Eduardo', 8.5, '96345678A', 1, 'johndoef@email.com', 'password1');
+INSERT INTO alumno (id_alumno, nombre, nota_media, dni, id_tutor, email, password) VALUES (1, 'Eduardo', 8.5, '96345678A', 1, 'pruebaalumnog21@hotmail.com', 'password1');
 INSERT INTO alumno (id_alumno, nombre, nota_media, dni, id_tutor, email, password) VALUES (2, 'Juana', 9.0, '21425789V', 2, 'janedoe@email.com', 'password2');
 INSERT INTO alumno (id_alumno, nombre, nota_media, dni, id_tutor, email, password) VALUES (3, 'Bob', 7.0, '34567890C', 3, 'bobsmith@email.com', 'password3');
 INSERT INTO alumno (id_alumno, nombre, nota_media, dni, id_tutor, email, password) VALUES (4, 'Alicia', 8.0, '45645901D', 4, 'alicejohnson@email.com', 'password4');

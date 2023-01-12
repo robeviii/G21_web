@@ -51,7 +51,7 @@
                 </form>        
             </c:when>
             <c:otherwise>
-                <p>Las practicas ya se han asignado!</p>
+                <p>¡Practicas asignadas, y correos mandados!</p>
             </c:otherwise>
         </c:choose>
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
