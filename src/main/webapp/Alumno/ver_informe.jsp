@@ -50,7 +50,7 @@
                 <p><c:out default="Todavia no se ha emitido un informe" value="${sessionScope.informe}"></c:out></p>
             </div>
                 <c:if test="${not empty sessionScope.informe}">
-                    <form method="POST" action="/Pdf">
+                    <form method="POST" action="Pdf">
               
                         <input type="submit" value="Descargar PDF" name="btnver"/>
             
