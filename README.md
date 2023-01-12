@@ -27,8 +27,11 @@ En caso de querer consultar la base de datos para verificar los datos en un gest
 Los usuarios predeterminados que se especifican en el enunciado de la practica se han modificado ya que nuestra aplicacion solo permite loguearse con correos validos y contraseña: 
 
 Email: admin@admin.com Password: admin
+
 Tutor: tutor@email.com Password: tutor
+
 Alumno: alumno@email.com Password: alumno
+
 
 ## 📄 Javadoc
 
