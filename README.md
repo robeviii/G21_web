@@ -22,7 +22,14 @@ Se ha optado por un sistema de contenedores para desplegar la aplicación implem
 4. Esperar a que los contenedores esten corriendo y a que mariadb haya populado la BBDD (2-3 mins)
 5. Abrir en el navegador [localhost:8080/webcs-1](http://localhost:8080/webcs-1) para visitar la aplicacion.
 
- 
+En caso de querer consultar la base de datos para verificar los datos en un gestor grafico de bases de datos como DBeaver,  phpMyAdmin... La url de conexion de la BBDD en el contenedor de Docker para acceder desde fuera de este es: localhost:36 usuario "root" y contraseña "webcs"
+
+Los usuarios predeterminados que se especifican en el enunciado de la practica se han modificado ya que nuestra aplicacion solo permite loguearse con correos validos y contraseña: 
+
+Email: admin@admin.com Password: admin
+Tutor: tutor@email.com Password: tutor
+Alumno: alumno@email.com Password: alumno
+
 ## 📄 Javadoc
 
 El javadoc se encuentra en: [javadoc](/javadoc/index.html) (Abrirlo desde la carpeta del proyecto para que se muestre en el navegador).
