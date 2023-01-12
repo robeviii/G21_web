@@ -19,7 +19,7 @@ Se ha optado por un sistema de contenedores para desplegar la aplicación implem
   ```
   docker-compose up
   ```
-4. Esperar a que los contenedores esten corriendo.
+4. Esperar a que los contenedores esten corriendo y a que mariadb haya populado la BBDD (2-3 mins)
 5. Abrir en el navegador [localhost:8080/webcs-1](http://localhost:8080/webcs-1) para visitar la aplicacion.
 
  
