@@ -55,7 +55,6 @@ public class ControladorLogin extends HttpServlet {
         boolean cerrarSesion = false;
         cerrarSesion = Boolean.valueOf(request.getParameter("cerrarSesion"));
         
-        System.out.println(cerrarSesion);
         if (cerrarSesion){
             //Cierra la sesion en caso de que se requiera por el parametro de URL
             HttpSession sesion = request.getSession();

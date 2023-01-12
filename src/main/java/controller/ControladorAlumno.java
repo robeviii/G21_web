@@ -125,7 +125,6 @@ public class ControladorAlumno extends HttpServlet {
         }else if("eliminar_practicas".equals(accion)){
             
             List<String> parametros = new ArrayList<>(request.getParameterMap().keySet());
-            System.out.println(parametros.get(1));
             Practica practica = new Practica();
 
             practica.setId_alumno(Long.parseLong(session.getAttribute("id_alumno").toString()));

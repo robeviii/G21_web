@@ -116,7 +116,6 @@ public class ControladorResponsable extends HttpServlet {
             
         }else if("practicas".equals(accion)){
             List<Practica> practicas = practicasDao.listaPracticas();
-            System.out.println(practicas);
             if (practicas.isEmpty()){
                 request.setAttribute("hay_practicas", false);
                 

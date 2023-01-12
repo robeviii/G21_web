@@ -11,8 +11,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Otorgar nota</title
+        <link href="estilos.css" rel="stylesheet" />
+
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet">
+
     </head>
     <body>
         <nav class="navbar navbar-expand navbar-light bg-light">
@@ -40,30 +43,32 @@
             </div>
             
         </nav>
-        <h1>Dar nota de las practicas</h1>
-        <form action="ControladorTutor?accion=actualizarnota" method="POST" autocomplete="off">
-            
-            <input id="idalumno" name="idalumno" type="hidden" value="<c:out value="${alumno.id}"/>"/>
-            <input id="nombre" name="nombre" type="hidden" value="<c:out value="${alumno.nombre}"/>"/>
-            <input id="dni" name="dni" type="hidden" value="<c:out value="${alumno.dni}"/>"/>
-            <input id="notamedia" name="notamedia" type="hidden" value="<c:out value="${alumno.nota_media}"/>"/>
-            <input id="email" name="email" type="hidden" value="<c:out value="${alumno.email}"/>"/>
-            <input id="id_tutor_al" name="id_tutor_al" type="hidden" value="<c:out value="${alumno.id_tutor}"/>"/>
+        <div class="w-50 mx-auto pt-5 ">
 
-            <p>
-                Otorgando nota a <c:out value="${alumno.nombre}"/>
-                
-            </p>
-            
-            <p>
-                Dar nota:
-                <input id="notaprac" name="notaprac" type="text" value="<c:out value="${alumno.nota_practica}"/>" />
-                
-            </p>
-            
-            <button id="guardarnota" name="guardarnota" type="submit">Guardar</button>
-            
-        </form>
+            <h1>Dar nota de las practicas</h1>
+            <form action="ControladorTutor?accion=actualizarnota" method="POST" autocomplete="off">
+
+                <input id="idalumno" name="idalumno" type="hidden" value="<c:out value="${alumno.id}"/>"/>
+                <input id="nombre" name="nombre" type="hidden" value="<c:out value="${alumno.nombre}"/>"/>
+                <input id="dni" name="dni" type="hidden" value="<c:out value="${alumno.dni}"/>"/>
+                <input id="notamedia" name="notamedia" type="hidden" value="<c:out value="${alumno.nota_media}"/>"/>
+                <input id="email" name="email" type="hidden" value="<c:out value="${alumno.email}"/>"/>
+                <input id="id_tutor_al" name="id_tutor_al" type="hidden" value="<c:out value="${alumno.id_tutor}"/>"/>
+
+                <p>
+                    Otorgando nota a <c:out value="${alumno.nombre}"/>
+
+                </p>
+
+                <p>
+                    <label for="notaprac" class="form-label">Dar nota:</label>
+                    <input required class="form-control" id="notaprac" name="notaprac" type="number" step="0.1" min="0" max="10" value="<c:out value="${alumno.nota_practica}"/>" />
+                </p>
+
+                <button id="guardarnota" name="guardarnota" type="submit" class="btn btn-primary">Guardar</button>
+
+            </form>
+        </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
     </body>

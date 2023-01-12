@@ -16,7 +16,7 @@ public class DbUtil {
 
     public static Connection getConnection() {
         String driver = "com.mysql.cj.jdbc.Driver";
-        String url = "jdbc:mysql://mariadb:3306/ingenieros_al_peso?useTimezone=true&serverTimezone=Europe/Madrid";
+        String url = "jdbc:mysql://localhost:36/ingenieros_al_peso?useTimezone=true&serverTimezone=Europe/Madrid";
         String user = "root";
         String password = "webcs";
         Log.logdb.info("Conectando a BBDD...");

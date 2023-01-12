@@ -22,6 +22,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -35,17 +36,34 @@ import model.Tutor;
  *
  * @author 34646
  */
-@WebServlet(name = "pdf", urlPatterns = {"/pdf"})
-public class pdf extends HttpServlet {
-
+@WebServlet(name = "pdf", urlPatterns = {"/Pdf"})
+public class Pdf extends HttpServlet {
+    
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                response.setContentType("application/pdf");
+        
+        HttpSession session  = request.getSession();
+        if(session.getAttribute("email") == null){
+            response.sendRedirect("login");
+            return;
+        }
+
+        response.setContentType("application/pdf");
         OutputStream out = response.getOutputStream();
         AlumnoDao alumnoDao = new AlumnoDao();
         TutorDao tutorDao = new TutorDao();
-        Alumno a = alumnoDao.obtener(1);
+        Long id_alumno = Long.parseLong(request.getSession().getAttribute("id_alumno").toString());
+        Alumno a = alumnoDao.obtener(id_alumno);
         Tutor t = tutorDao.obtener(a.getId_tutor());
         try{
             
@@ -58,7 +76,7 @@ public class pdf extends HttpServlet {
             
             
             //Logo
-            Image imagen = Image.getInstance("imagen/logo_uah.png");
+            Image imagen = Image.getInstance("\\src\\main\\java\\imagen\\logo_uah.png");
             imagen.setAlignment(Element.ALIGN_CENTER);
             imagen.scaleToFit(150, 150);
             documento.add(imagen);
@@ -167,9 +185,8 @@ public class pdf extends HttpServlet {
             
             documento.close();
             
-            
-        }catch(Exception e){e.getMessage();}
-        
+        }catch(Exception e){            System.out.println(e.getMessage());
+}
         
         
         }finally {
@@ -183,6 +200,7 @@ public class pdf extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        doGet(request, response);
     }
 
     /**

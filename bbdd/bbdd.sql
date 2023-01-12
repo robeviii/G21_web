@@ -122,15 +122,15 @@ INSERT INTO empresa (nombre_e, direccion, ambito, web, telefono, nalumnos, horar
 
 -- 15 alumnos sin practicas asignadas
 
-INSERT INTO alumno (id_alumno, nombre, nota_media, dni, id_tutor, email, password) VALUES (1, 'John', 8.5, '12345678A', 1, 'johndoef@email.com', 'password1');
-INSERT INTO alumno (id_alumno, nombre, nota_media, dni, id_tutor, email, password) VALUES (2, 'Jane', 9.0, '23456789B', 2, 'janedoe@email.com', 'password2');
+INSERT INTO alumno (id_alumno, nombre, nota_media, dni, id_tutor, email, password) VALUES (1, 'Eduardo', 8.5, '96345678A', 1, 'johndoef@email.com', 'password1');
+INSERT INTO alumno (id_alumno, nombre, nota_media, dni, id_tutor, email, password) VALUES (2, 'Juana', 9.0, '21425789V', 2, 'janedoe@email.com', 'password2');
 INSERT INTO alumno (id_alumno, nombre, nota_media, dni, id_tutor, email, password) VALUES (3, 'Bob', 7.0, '34567890C', 3, 'bobsmith@email.com', 'password3');
-INSERT INTO alumno (id_alumno, nombre, nota_media, dni, id_tutor, email, password) VALUES (4, 'Alice', 8.0, '45678901D', 4, 'alicejohnson@email.com', 'password4');
-INSERT INTO alumno (id_alumno, nombre, nota_media, dni, id_tutor, email, password) VALUES (5, 'Charlie', 9.5, '56789022E', 5, 'charliewilliams@email.com', 'password5');
-INSERT INTO alumno (id_alumno, nombre, nota_media, dni, id_tutor, email, password) VALUES (6, 'Dave', 6.5, '67890233F', 6, 'davejones@email.com', 'password6');
-INSERT INTO alumno (id_alumno, nombre, nota_media, dni, id_tutor, email, password) VALUES (7, 'Eve', 8.0, '78903444G', 7, 'evebrown@email.com', 'password7');
-INSERT INTO alumno (id_alumno, nombre, nota_media, dni, id_tutor, email, password) VALUES (8, 'Frank', 7.5, '89034555H', 8, 'frankdavis@email.com', 'password8');
-INSERT INTO alumno (id_alumno, nombre, nota_media, dni, id_tutor, email, password) VALUES (9, 'Gina', 9.0, '90456555I', 9, 'ginamiller@email.com', 'password9');
+INSERT INTO alumno (id_alumno, nombre, nota_media, dni, id_tutor, email, password) VALUES (4, 'Alicia', 8.0, '45645901D', 4, 'alicejohnson@email.com', 'password4');
+INSERT INTO alumno (id_alumno, nombre, nota_media, dni, id_tutor, email, password) VALUES (5, 'Juan', 9.5, '56789322E', 5, 'charliewilliams@email.com', 'password5');
+INSERT INTO alumno (id_alumno, nombre, nota_media, dni, id_tutor, email, password) VALUES (6, 'David', 6.5, '67840233F', 6, 'davejones@email.com', 'password6');
+INSERT INTO alumno (id_alumno, nombre, nota_media, dni, id_tutor, email, password) VALUES (7, 'Eva', 8.0, '78934544G', 7, 'evebrown@email.com', 'password7');
+INSERT INTO alumno (id_alumno, nombre, nota_media, dni, id_tutor, email, password) VALUES (8, 'Francis', 7.5, '89032555J', 8, 'frankdavis@email.com', 'password8');
+INSERT INTO alumno (id_alumno, nombre, nota_media, dni, id_tutor, email, password) VALUES (9, 'Gina', 9.0, '90154265P', 9, 'ginamiller@email.com', 'password9');
 INSERT INTO alumno (id_alumno, nombre, nota_media, dni, id_tutor, email, password) VALUES (10, 'Mike', 9.7, '56789022O', 4, 'mikerodriguez@email.com', 'password15');
 INSERT INTO alumno (id_alumno, nombre, nota_media, dni, id_tutor, email, password) VALUES (11, 'Igor', 8.2, '12345678K', 10, 'igorgarcia@email.com', 'password11');
 INSERT INTO alumno (id_alumno, nombre, nota_media, dni, id_tutor, email, password) VALUES (12, 'Julia', 9.5, '23456789L', 1, 'juliamartinez@email.com', 'password12');

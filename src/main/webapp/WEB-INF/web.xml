@@ -76,7 +76,14 @@
         <servlet-name>ControladorTutor</servlet-name>
         <url-pattern>/ControladorTutor/*</url-pattern>
     </servlet-mapping>
-    
+     <servlet>
+        <servlet-name>Pdf</servlet-name>
+        <servlet-class>util.Pdf</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Pdf</servlet-name>
+        <url-pattern>/Pdf/*</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
