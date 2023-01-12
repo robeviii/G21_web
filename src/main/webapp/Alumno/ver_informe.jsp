@@ -27,10 +27,10 @@
                     <a class="nav-link" href="panelAlumno">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="ControladorAlumno?action=solicitud_practicas">Solicitud</a>
+                    <a class="nav-link" href="ControladorAlumno?accion=solicitud_practicas">Solicitud</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="ControladorAlumno?action=ver_informe">Informes</a>
+                    <a class="nav-link" href="ControladorAlumno?accion=ver_informe">Informes</a>
                 </li>
                 
             </ul>

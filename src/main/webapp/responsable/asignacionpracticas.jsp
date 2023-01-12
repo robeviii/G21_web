@@ -42,18 +42,19 @@
             </div>
             
         </nav>
-        <h1>Asignacion practicas</h1>
-        <c:out value="${requestScope.hay_practicas}"></c:out>
-        <c:choose>
-            <c:when test="${requestScope.hay_practicas}">
-                <form action="ControladorResponsable?accion=asignarpracticas" method="POST" autocomplete="off">
-                    <button type="submit" value="Asignar">Asignar</button> 
-                </form>        
-            </c:when>
-            <c:otherwise>
-                <p>¡Practicas asignadas, y correos mandados!</p>
-            </c:otherwise>
-        </c:choose>
+        <div class="w-50 mx-auto pt-5 ">
+            <h1>Asignacion practicas</h1>
+            <c:choose>
+                <c:when test="${requestScope.hay_practicas}">
+                    <form action="ControladorResponsable?accion=asignarpracticas" method="POST" autocomplete="off">
+                        <button class="btn btn-primary mt-3" type="submit" value="Asignar">Asignar</button> 
+                    </form>        
+                </c:when>
+                <c:otherwise>
+                    <p>¡Practicas asignadas, y correos mandados!</p>
+                </c:otherwise>
+            </c:choose>
+        </div>
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
     </body>
