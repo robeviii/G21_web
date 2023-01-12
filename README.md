@@ -23,3 +23,6 @@ Se ha optado por un sistema de contenedores para desplegar la aplicacion impleme
 5. Abrir en el navegador [localhost:8080/webcs-1](http://localhost:8080/webcs-1) para visitar la aplicacion.
 
  
+## 📄 Javadoc
+
+El javadoc se encuentra en: [javadoc](/javadoc/index.html) (Abrirlo desde la carpeta del proyecto para que se muestre en el navegador=
