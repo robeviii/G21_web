@@ -10,10 +10,18 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * Clase que establece la conexion con la base de datos
+ * @author victor
+ */
+
 public class DbUtil {
-
+    
     private static Connection connection = null;
-
+    /**
+     * Crea una conexion con la base de datos de Docker(mariadb:3306)
+     * @return 
+     */
     public static Connection getConnection() {
         String driver = "com.mysql.cj.jdbc.Driver";
         String url = "jdbc:mysql://mariadb:3306/ingenieros_al_peso?useTimezone=true&serverTimezone=Europe/Madrid";
