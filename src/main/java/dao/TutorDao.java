@@ -22,13 +22,19 @@ import util.Log;
 public class TutorDao{
     
     private Connection connection;
-
+    /**
+     * Crea un Dao para tutor
+     */
     public TutorDao() {
         Log.logdb.info("Conectando para TutorDao...\n");
         connection = DbUtil.getConnection();
         Log.logdb.info("Conectado!\n");
     }
-
+    /**
+     * Devuelve un tutor con ese email
+     * @param email
+     * @return 
+     */
     public Tutor obtenerPorEmail(String email) {
         Tutor tutor = new Tutor();
         if (connection != null)
@@ -58,6 +64,11 @@ public class TutorDao{
             return null;
         }
     }
+    /**
+     * Devuelve un tutor con ese id
+     * @param id
+     * @return 
+     */
     public Tutor obtener(long id) {
         Tutor tutor = new Tutor();
         if (connection != null)
@@ -87,7 +98,10 @@ public class TutorDao{
             return null;
         }
     }
-
+    /**
+     * Devuelve una lista de todos los tutores
+     * @return 
+     */
     public List<Tutor> listaTutor() {
         List<Tutor> tutores = new ArrayList<Tutor>();
         if (connection != null)
@@ -116,23 +130,4 @@ public class TutorDao{
             return null;
         }
     }
-
-    public void insertar(Tutor t) {
-        PreparedStatement ps;        
-        
-        try{
-            ps = connection.prepareStatement("INSERT INTO tutor (nombre_t, apellido_t) VALUES (?,?)");
-            ps.setString(1, t.getNombre());
-            ps.setString(2, t.getApellido());
-            ps.execute();
-            
-            
-        } catch(SQLException e){
-            
-            System.out.println(e.toString());
-            
-        }
-        
-    }
-    
 }

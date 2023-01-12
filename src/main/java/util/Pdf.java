@@ -9,7 +9,6 @@ import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
-import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -18,7 +17,6 @@ import dao.AlumnoDao;
 import dao.TutorDao;
 
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -33,10 +31,9 @@ import model.Tutor;
 
 
 /**
- *
+ * Servlet que descarga el informe de un alumno en PDF
  * @author 34646
  */
-@WebServlet(name = "pdf", urlPatterns = {"/Pdf"})
 public class Pdf extends HttpServlet {
     
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

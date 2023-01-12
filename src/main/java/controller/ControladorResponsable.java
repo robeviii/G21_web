@@ -7,10 +7,8 @@ package controller;
 import dao.AlumnoDao;
 import dao.EmpresaDao;
 import dao.PracticasDao;
-import dao.TutorDao;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -18,14 +16,13 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeSet;
 import model.Empresa;
 import model.Alumno;
 import model.Practica;
 import util.EmailSender;
 
 /**
- *
+ * Controlador de las acciones del responsable
  * @author 34646
  */
 public class ControladorResponsable extends HttpServlet {
@@ -145,12 +142,12 @@ public class ControladorResponsable extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
-    public void asignarPracticas(){
-        
-    }
     
-    
+    /**
+     * Inicializa todas las plazas ocupadas de las empresas a 0
+     * @param empresas totales que tienen solicitudes de practicas
+     * @return diccionario (nombre_empresa, plazas disponibles(0))
+     */
     public Map<String,Integer> inicializarPlazas(List<String> empresas){
         
         Map<String, Integer> plazasEmpresa = new HashMap<>();

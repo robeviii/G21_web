@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.webcs.webcs"},{"l":"com.webcs.webcs.resources"},{"l":"controller"},{"l":"dao"},{"l":"model"},{"l":"util"}];updateSearchResults();

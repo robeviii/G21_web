@@ -22,13 +22,19 @@ import util.Log;
 public class AlumnoDao{
     
     private Connection connection;
-
+    /**
+     * Crea un Dao de alumno
+     */
     public AlumnoDao() {
         Log.logdb.info("Conectando para AlumnoDao...\n");
         connection = DbUtil.getConnection();
         Log.logdb.info("Conectado!\n");
     }
-
+    /**
+     * devuelve un alumno por su id
+     * @param id
+     * @return 
+     */
     public Alumno obtener(long id) {
         Alumno alumno = new Alumno();
         if (connection != null)
@@ -62,7 +68,11 @@ public class AlumnoDao{
             return null;
         }    
     }
-    
+    /**
+     * asigna una empresa al alumno con ese id 
+     * @param id_alumno
+     * @param nombre_empresa 
+     */
     public void asignarEmpresa(long id_alumno, String nombre_empresa){
         PreparedStatement ps;        
         
@@ -79,7 +89,11 @@ public class AlumnoDao{
             
         }
     }
-    
+    /**
+     * devuelve un alumno con ese email
+     * @param email
+     * @return 
+     */
     public Alumno obtenerPorEmail(String email) {
         Alumno alumno = new Alumno();
         if (connection != null)
@@ -115,7 +129,11 @@ public class AlumnoDao{
             return null;
         }
     }
-
+    /**
+     * devuelve todos los alumnos con ese tutor
+     * @param id_tutor
+     * @return 
+     */
     public List<Alumno> listaAlumnos(long id_tutor) {
         PreparedStatement ps;
         ResultSet rs;
@@ -154,6 +172,11 @@ public class AlumnoDao{
             
         }
     }
+    /**
+     * actualiza la nota del alumno 
+     * @param alumno
+     * @return 
+     */
     public boolean actualizarNota(Alumno alumno){
         
         PreparedStatement ps;        
@@ -174,7 +197,11 @@ public class AlumnoDao{
         }
         
     }
-    
+    /**
+     * actualiza el informe del alumno
+     * @param alumno
+     * @return 
+     */
     public boolean actualizarInforme(Alumno alumno){
         
         PreparedStatement ps;        

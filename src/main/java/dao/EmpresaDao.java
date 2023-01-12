@@ -21,7 +21,9 @@ import util.Log;
 public class EmpresaDao{
     
     Connection connection;
-    
+    /**
+     * Crea un Dao de empresa
+     */
     public EmpresaDao(){
         Log.logdb.info("Conectando para EmpresaDao...\n");
         connection = DbUtil.getConnection();
@@ -29,6 +31,10 @@ public class EmpresaDao{
         
     }
     
+    /**
+     * Devuelve todas las empresas
+     * @return 
+     */
     public List<Empresa> listaEmpresa(){
         
         PreparedStatement ps;
@@ -67,6 +73,11 @@ public class EmpresaDao{
         }
         
     }
+    /**
+     * Devuelve las plazas totales de la empresa
+     * @param nombreEmpresa
+     * @return 
+     */
     public Integer obtenerMaxAlumnos(String nombreEmpresa){
         PreparedStatement ps;
         ResultSet rs;
@@ -88,6 +99,11 @@ public class EmpresaDao{
            }
         return null;
     }
+    /**
+     * Devuelve una empresa por su nombre
+     * @param _nombre
+     * @return 
+     */
     public Empresa mostrarEmpresa(String _nombre){
         
         PreparedStatement ps;
@@ -125,7 +141,10 @@ public class EmpresaDao{
         
     }
     
-   
+   /**
+    * inserta una nueva empresa
+    * @param empresa 
+    */
     public void insertar(Empresa empresa) {
         PreparedStatement ps;        
         
@@ -150,7 +169,11 @@ public class EmpresaDao{
         }
     }
 
-   
+   /**
+    * actualiza una empresa
+    * @param empresa
+    * @param params 
+    */
     public void actualizar(Empresa empresa, String[] params) {
         PreparedStatement ps;        
         
@@ -173,7 +196,10 @@ public class EmpresaDao{
             
         }
     }
-
+    /**
+     * elimina una empresa
+     * @param empresa 
+     */
     public void eliminar(Empresa empresa) {
         PreparedStatement ps;        
         

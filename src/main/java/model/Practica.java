@@ -5,7 +5,7 @@
 package model;
 
 /**
- *
+ * Modelo practica
  * @author victor
  */
 public class Practica {

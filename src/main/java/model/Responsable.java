@@ -3,7 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model;
-
+/**
+ * Modelo Responsable extiende de usuario
+ * @author victor
+ */
 public class Responsable extends Usuario{
     private long id;
     private String nombre;

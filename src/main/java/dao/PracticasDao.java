@@ -22,13 +22,19 @@ import util.Log;
  */
 public class PracticasDao {
     Connection connection;
-    
+    /**
+     * Crea un Dao para practicas
+     */
     public PracticasDao(){
         Log.logdb.info("Conectando para PracticasDao...\n");
         connection = DbUtil.getConnection();
         Log.logdb.info("Conectado!\n");
         
     }
+    /**
+     * Elimina todas las practicas solicitadas a una empresa especifica
+     * @param nombre_empresa 
+     */
     public void eliminarPracticasEmpresa(String nombre_empresa){
         PreparedStatement ps;        
         
@@ -45,6 +51,10 @@ public class PracticasDao {
         }
     
     }
+    /**
+     * elimina todas las practicas solicitadas por un alumno especifico
+     * @param id_alumno 
+     */
     public void eliminarPracticasAlumno(long id_alumno){
         PreparedStatement ps;        
         
@@ -61,7 +71,12 @@ public class PracticasDao {
         }
     
     }
-    
+    /**
+     * Devuelve las practicas solicitadas por un alumno en un diccionario
+     * (nombre_empresa, preferencia)
+     * @param id_alumno
+     * @return 
+     */
     public Map<String,Integer> obtenerNombreEmpresasSolicitadasPorPreferenciaAlumno(long id_alumno){
         Map<String,Integer>  nombresEmpresa = new HashMap<>(); 
         try{
@@ -84,6 +99,10 @@ public class PracticasDao {
             
         }
     }
+    /**
+     * Devuelve solo las empresas a las que hayan solicitado practicas
+     * @return 
+     */
     public List<String> obtenerEmpresasConPracticas(){
         List<String> nombres_empresas= new ArrayList<>();
         try{
@@ -105,6 +124,13 @@ public class PracticasDao {
             
         }
     }
+    /**
+     * Devuelve las practicas de una empresa y una preferencia especifica y las ordena por 
+     * las notas de los alumnos que han seleccionado esas practicas
+     * @param nombre_empresa
+     * @param preferencia
+     * @return 
+     */
     public List<Practica> obtenerPracticasPorEmpresaPreferenciaOrdenadas(String nombre_empresa, int preferencia){
         // DEVUELVE LAS PRACTICAS QUE LOS ALUMNOS HAN HECHO EN UNA EMPRESA Y CON UNA PREFERENCIA ESPECIFICA
         // ORDENADAS POR NOTA MEDIA DEL ALUMNO
@@ -135,6 +161,10 @@ public class PracticasDao {
             
         }
     }
+    /**
+     * Devuelve todas las practicas
+     * @return 
+     */
     public List<Practica> listaPracticas(){
         List<Practica> practicas= new ArrayList<>();
         try{
@@ -160,6 +190,10 @@ public class PracticasDao {
             
         }
     }
+    /**
+     * Elimina una practica
+     * @param practica 
+     */
     public void eliminarPractica(Practica practica){
         PreparedStatement ps;        
         
@@ -177,7 +211,10 @@ public class PracticasDao {
         }
     
     }
-    
+    /**
+     * actualiza una practica
+     * @param practica 
+     */
     public void actualizarPractica(Practica practica){
         PreparedStatement ps;        
         

@@ -5,7 +5,7 @@
 package model;
 
 /**
- *
+ * Modelo usuario, clase padre del resto de roles
  * @author victor
  */
 public class Usuario {

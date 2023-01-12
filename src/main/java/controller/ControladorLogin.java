@@ -9,7 +9,6 @@ import dao.AlumnoDao;
 import dao.ResponsableDao;
 import dao.TutorDao;
 import jakarta.servlet.RequestDispatcher;
-import jakarta.servlet.annotation.WebServlet;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -22,7 +21,7 @@ import model.Tutor;
 import util.Log;
 
 /**
- *
+ * Controlador para el funcionamiento del login
  * @author victor
  */
 
@@ -115,7 +114,13 @@ public class ControladorLogin extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-    
+    /**
+     * Comprueba si existe un alumno con esas credenciales
+     * @param email email insertado en el login
+     * @param pwd contraseña insertada en el login
+     * @param request request del login para establecer los atributos del alumno
+     * @return true o false dependiendo si existe o no
+     */
     private boolean buscaAlumno(String email, String pwd, HttpServletRequest request){
         Alumno alumno = daoAlumno.obtenerPorEmail(email);
         
@@ -135,6 +140,13 @@ public class ControladorLogin extends HttpServlet {
         }
         return false;
     }
+    /**
+     * Comprueba si existe un responsable con esas credenciales
+     * @param email email insertado en el login
+     * @param pwd contraseña insertada en el login
+     * @param request request del login para establecer los atributos del responsable
+     * @return true o false dependiendo si existe o no
+     */
     private boolean buscaResponsable(String email, String pwd, HttpServletRequest request){
         Responsable responsable = daoResponsable.obtenerPorEmail(email);
         
@@ -152,6 +164,13 @@ public class ControladorLogin extends HttpServlet {
         }
         return false;
     }
+    /**
+     * Comprueba si existe un tutor con esas credenciales
+     * @param email email insertado en el login
+     * @param pwd contraseña insertada en el login
+     * @param request request del login para establecer los atributos del tutor
+     * @return true o false dependiendo si existe o no
+     */
     private boolean buscaTutor(String email, String pwd, HttpServletRequest request){
         Tutor tutor = daoTutor.obtenerPorEmail(email);
         

@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 /**
- *
+ * Controlador del panel de alumno
  * @author victor
  */
 public class PanelControlAlumnoServlet extends HttpServlet {

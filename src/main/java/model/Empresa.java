@@ -6,7 +6,7 @@
 package model;
 
 /**
- *
+ * Modelo Empresa
  * @author 34646
  */
 public class Empresa {

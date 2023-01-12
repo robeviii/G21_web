@@ -20,7 +20,7 @@ import model.Alumno;
 import model.Tutor;
 
 /**
- *
+ * Clase responsable de mandar emails a los alumnos
  * @author victor
  */
 public class EmailSender {
@@ -32,7 +32,9 @@ public class EmailSender {
 
     private AlumnoDao alumnoDao = new AlumnoDao();
     private TutorDao tutorDao = new TutorDao();
-
+    /**
+     * Crea un servicio de envio de emails y establece sus propiedades
+     */
     public EmailSender() {
         alumnoDao = new AlumnoDao();
         tutorDao = new TutorDao();
@@ -45,7 +47,10 @@ public class EmailSender {
 
         session = Session.getDefaultInstance(props);
     }
-
+    /**
+     * Envia un email de bienvenida a las practicas al email del alumno
+     * @param id_alumno 
+     */
     public void enviarEmail(Long id_alumno) {
         
         try {

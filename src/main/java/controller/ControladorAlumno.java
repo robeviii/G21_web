@@ -10,7 +10,6 @@ import dao.PracticasDao;
 import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -26,7 +25,7 @@ import model.Practica;
 import util.Log;
 
 /**
- *
+ * Controlador para las acciones de un alumno
  * @author victor
  */
 
@@ -168,7 +167,12 @@ public class ControladorAlumno extends HttpServlet {
         return "Short description";
     }// </editor-fold>
          
-    
+    /**
+     * Devuelve una lista de empresas que todavia tienen plazas para aceptar practicas
+     * @param empresas empresas totales
+     * @param practicasSolicitadas practicas solicitadas actualmente
+     * @return empresas que no tienen practicas solicitadas
+     */
     private List<Empresa> obtenerEmpresasSinSolicitar(List<Empresa> empresas, Map<String,Integer> practicasSolicitadas){
                 
         List<Empresa> empresasSinSolicitar = new ArrayList<>();
@@ -181,6 +185,13 @@ public class ControladorAlumno extends HttpServlet {
         }
         return empresasSinSolicitar;
     }
+    /**
+     * Devuelve una lista de empresas que no tienen plazas para aceptar practicas
+     * @param empresas empresas totales
+     * @param practicasSolicitadas mapa de las practicas (Nombre_empresa, preferencia)
+     * @return retorna un mapa con la preferencia de la empresa como llave y su nombre como valor
+     */
+    
     private Map<Integer,Empresa> obtenerEmpresasSolicitadas(List<Empresa> empresas, Map<String,Integer> practicasSolicitadas){
                 
         Map<Integer,Empresa> empresasSolicitadas = new HashMap<>();

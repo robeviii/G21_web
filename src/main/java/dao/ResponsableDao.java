@@ -22,7 +22,9 @@ import util.Log;
 public class ResponsableDao{
     
     private Connection connection;
-
+    /**
+     * Crea un Dao para responsable
+     */
     public ResponsableDao() {
         Log.logdb.info("Conectando para ResponsableDao...\n");
         connection = DbUtil.getConnection();
@@ -30,7 +32,11 @@ public class ResponsableDao{
     }
 
     
-    
+    /**
+     * Devuelve un responsable con ese email
+     * @param email
+     * @return 
+     */
     public Responsable obtenerPorEmail(String email) {
         Responsable responsable = new Responsable();
         if (connection != null)
@@ -60,7 +66,10 @@ public class ResponsableDao{
             return null;
         }
     }
-
+    /**
+     * Devuelve todos los responsables
+     * @return 
+     */
     public List<Responsable> listaResponsables() {
         List<Responsable> responsables = new ArrayList<Responsable>();
         if (connection != null)
