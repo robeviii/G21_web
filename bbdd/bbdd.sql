@@ -75,7 +75,7 @@ CREATE TABLE responsable (
 
 -- 10 tutores
 
-INSERT INTO tutor (nombre, apellido, password, email, id_tutor) VALUES ('John', 'Doe', 'password123', 'johndoe@email.com', 1);
+INSERT INTO tutor (nombre, apellido, password, email, id_tutor) VALUES ('Tutor', 'tutor', 'tutor', 'tutor@email.com', 1);
 INSERT INTO tutor (nombre, apellido, password, email, id_tutor) VALUES ('Jane', 'Smith', 'password456', 'janesmith@email.com', 2);
 INSERT INTO tutor (nombre, apellido, password, email, id_tutor) VALUES ('Bob', 'Johnson', 'password789', 'bobjohnson@email.com', 3);
 INSERT INTO tutor (nombre, apellido, password, email, id_tutor) VALUES ('Alice', 'Williams', 'password101', 'alicewilliams@email.com', 4);
@@ -125,7 +125,7 @@ INSERT INTO empresa (nombre_e, direccion, ambito, web, telefono, nalumnos, horar
 INSERT INTO alumno (id_alumno, nombre, nota_media, dni, id_tutor, email, password) VALUES (1, 'Eduardo', 8.5, '96345678A', 1, 'pruebaalumnog21@hotmail.com', 'password1');
 INSERT INTO alumno (id_alumno, nombre, nota_media, dni, id_tutor, email, password) VALUES (2, 'Juana', 9.0, '21425789V', 2, 'janedoe@email.com', 'password2');
 INSERT INTO alumno (id_alumno, nombre, nota_media, dni, id_tutor, email, password) VALUES (3, 'Bob', 7.0, '34567890C', 3, 'bobsmith@email.com', 'password3');
-INSERT INTO alumno (id_alumno, nombre, nota_media, dni, id_tutor, email, password) VALUES (4, 'Alicia', 8.0, '45645901D', 4, 'alicejohnson@email.com', 'password4');
+INSERT INTO alumno (id_alumno, nombre, nota_media, dni, id_tutor, email, password) VALUES (4, 'Alumno', 8.0, '45645901D', 4, 'alumno@email.com', 'alumno');
 INSERT INTO alumno (id_alumno, nombre, nota_media, dni, id_tutor, email, password) VALUES (5, 'Juan', 9.5, '56789322E', 5, 'charliewilliams@email.com', 'password5');
 INSERT INTO alumno (id_alumno, nombre, nota_media, dni, id_tutor, email, password) VALUES (6, 'David', 6.5, '67840233F', 6, 'davejones@email.com', 'password6');
 INSERT INTO alumno (id_alumno, nombre, nota_media, dni, id_tutor, email, password) VALUES (7, 'Eva', 8.0, '78934544G', 7, 'evebrown@email.com', 'password7');
@@ -154,7 +154,7 @@ INSERT INTO alumno (id_alumno, nombre, nota_media, dni, id_tutor, email, passwor
 -- 3 reponsables
 
 INSERT INTO responsable (id_responsable, nombre, email, password, apellido) VALUES (1, 'Juan', 'juan@email.com', 'abc123', 'Pérez');
-INSERT INTO responsable (id_responsable, nombre, email, password, apellido) VALUES (2, 'Maria', 'maria@email.com', 'def456', 'Gómez');
+INSERT INTO responsable (id_responsable, nombre, email, password, apellido) VALUES (2, 'Admin', 'admin@admin.com', 'admin', 'admin');
 INSERT INTO responsable (id_responsable, nombre, email, password, apellido) VALUES (3, 'Carlos', 'carlos@email.com', 'ghi789', 'Sánchez');
 
 -- 30 practicas 
