@@ -22,6 +22,7 @@ import java.util.TreeSet;
 import model.Empresa;
 import model.Alumno;
 import model.Practica;
+import util.EmailSender;
 
 /**
  *
@@ -29,7 +30,7 @@ import model.Practica;
  */
 public class ControladorResponsable extends HttpServlet {
     
-
+    
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -47,7 +48,7 @@ public class ControladorResponsable extends HttpServlet {
         AlumnoDao alumnoDAO = new AlumnoDao();
         String accion;
         RequestDispatcher dispatcher=null;
-        
+        EmailSender emailSender = new EmailSender();        
         accion = request.getParameter("accion");
         
        if("mostrarempresas".equals(accion)){
@@ -92,13 +93,14 @@ public class ControladorResponsable extends HttpServlet {
                     
                     for (Practica practica : practicas){
                         
-                        // Si hay hueco se asigna al alumno y se borran el resto de sus solicitudes
+                        // Si hay hueco se asigna al alumno, se borran el resto de sus solicitudes y se envia un correo
                         // ademas se resta una plaza de las disponibles en la empresa
                         if (plazasEmpresa.get(empresa) < maxPlazas){
                             
                             alumnoDAO.asignarEmpresa(practica.getId_alumno(), practica.getNombre_empresa());
                             practicasDao.eliminarPracticasAlumno(practica.getId_alumno());
                             plazasEmpresa.merge(empresa, 1, Integer::sum);
+                            emailSender.enviarEmail(practica.getId_alumno());
                         // Si no hay hueco se borra esa empresa de las practicas
                         // Y se pasa a la siguiente empresa
                         }else{
@@ -147,6 +149,8 @@ public class ControladorResponsable extends HttpServlet {
     public void asignarPracticas(){
         
     }
+    
+    
     public Map<String,Integer> inicializarPlazas(List<String> empresas){
         
         Map<String, Integer> plazasEmpresa = new HashMap<>();
@@ -156,5 +160,5 @@ public class ControladorResponsable extends HttpServlet {
         }
         return plazasEmpresa;
     }
-   
+    
 }
