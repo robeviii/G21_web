@@ -22,16 +22,23 @@ Se ha optado por un sistema de contenedores para desplegar la aplicación implem
 4. Esperar a que los contenedores esten corriendo y a que mariadb haya populado la BBDD (2-3 mins)
 5. Abrir en el navegador [localhost:8080/webcs-1](http://localhost:8080/webcs-1) para visitar la aplicacion.
 
+## 🛢️ Base de datos
+
 En caso de querer consultar la base de datos para verificar los datos en un gestor grafico de bases de datos como DBeaver,  phpMyAdmin... La url de conexion de la BBDD en el contenedor de Docker para acceder desde fuera de este es: localhost:36 usuario "root" y contraseña "webcs"
 
 Los usuarios predeterminados que se especifican en el enunciado de la practica se han modificado ya que nuestra aplicacion solo permite loguearse con correos validos y contraseña: 
 
-Email: admin@admin.com Password: admin
+|Rol        |Email           |Contraseña|
+|-----------|----------------|----------|
+|Responsable|admin@admin.com |admin     |
+|Tutor      |tutor@email.com |tutor     |
+|Alumno     |alumno@email.com|alumno    |
 
-Tutor: tutor@email.com Password: tutor
+Se ha añadido en la base de datos un correo real (OutLook) al alumno con ID = 1 para poder comprobar si el envio del correo de asignacion de practicas funciona. Sus credenciales son:
 
-Alumno: alumno@email.com Password: alumno
+Email: pruebaalumnog21@hotmail.com
 
+Contraseña: selena14
 
 ## 📄 Javadoc
 
