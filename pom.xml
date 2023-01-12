@@ -16,7 +16,19 @@
         <jakartaee>9.1.0</jakartaee>
     </properties>
     
+    
     <dependencies>
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.7</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.activation</groupId>
+            <artifactId>activation</artifactId>
+            <version>1.1.1</version>
+        </dependency>
         <dependency>
             <groupId>com.itextpdf</groupId>
             <artifactId>itextpdf</artifactId>
@@ -38,7 +50,7 @@
             <artifactId>log4j-api</artifactId>
             <version>2.19.0</version>
             <type>jar</type>
-       </dependency>
+        </dependency>
         
     </dependencies>
     
