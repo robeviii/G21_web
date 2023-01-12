@@ -74,17 +74,6 @@ public class Pdf extends HttpServlet {
             
             documento.open();
             
-            
-            //Logo
-            Image imagen = Image.getInstance("\\src\\main\\java\\imagen\\logo_uah.png");
-            imagen.setAlignment(Element.ALIGN_CENTER);
-            imagen.scaleToFit(150, 150);
-            documento.add(imagen);
-            
-            Paragraph par = new Paragraph();
-            par.add(new Phrase(Chunk.NEWLINE));
-            documento.add(par);
-
             //titulo
             Paragraph par1 = new Paragraph();
             Font fonttitulo = new Font(Font.FontFamily.HELVETICA,30, Font.BOLD,BaseColor.BLACK);
@@ -178,11 +167,7 @@ public class Pdf extends HttpServlet {
             par10.add(new Phrase(Chunk.NEWLINE));
             par10.add(new Phrase(Chunk.NEWLINE));
             documento.add(par10);
-            
-            //Logo final
-            documento.add(imagen);
-            
-            
+    
             documento.close();
             
         }catch(Exception e){            System.out.println(e.getMessage());
