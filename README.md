@@ -25,4 +25,4 @@ Se ha optado por un sistema de contenedores para desplegar la aplicacion impleme
  
 ## 📄 Javadoc
 
-El javadoc se encuentra en: [javadoc](/javadoc/index.html) (Abrirlo desde la carpeta del proyecto para que se muestre en el navegador=
+El javadoc se encuentra en: [javadoc](/javadoc/index.html) (Abrirlo desde la carpeta del proyecto para que se muestre en el navegador.
