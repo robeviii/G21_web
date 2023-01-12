@@ -12,11 +12,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Solicitud de practicas</title>
-       
+
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet">
-        <link href="estilos.css" rel="stylesheet" />
-
+        <link rel="stylesheet" href="estilos.css"/>
     </head>
     <body>
         <nav class="navbar navbar-expand navbar-light bg-light">
@@ -32,19 +31,19 @@
                 <li class="nav-item">
                     <a class="nav-link" href="ControladorAlumno?accion=ver_informe">Informes</a>
                 </li>
-                
+
             </ul>
             <div class="dropdown">
                 <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa-solid fa-user"></i>
+                    <i class="fa-solid fa-user"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li><a class="dropdown-item" href="login?cerrarSesion=true">Cerrar sesión</a></li>
                 </ul>
             </div>
-            
+
         </nav>
-        <div class="w-75 mx-auto pt-5 border">
+        <div class="w-75 mx-auto pt-5">
             <h1>Solicitud de practicas</h1>
 
             <h3>Empresas Solicitadas</h3>
@@ -65,7 +64,7 @@
                     </thead>
 
                     <tbody>
-                         <c:forEach var="empresa" items="${sessionScope.empresas_solicitadas}">
+                        <c:forEach var="empresa" items="${sessionScope.empresas_solicitadas}">
                             <tr>
                                 <td><c:out value="${empresa.value.nombre}"/></td>
                                 <td><c:out value="${empresa.value.direccion}"/></td>
@@ -92,49 +91,50 @@
                 </table>
             </form>
             <h3>Empresas Disponibles</h3>
-            <form action="ControladorAlumno?accion=añadir_practicas" method="POST" autocomplete="off">
-                <table class="table table-light table-bordered">
-                    <thead>
+            <button type="submit" value="Solicitar" class="btn btn-primary mb-2"/>Solicitar</button>
+        <form action="ControladorAlumno?accion=añadir_practicas" method="POST" autocomplete="off">
+            <table class="table table-light table-bordered">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Direccion</th>
+                        <th>Ambito</th>
+                        <th>Web</th>
+                        <th>Telefono</th>
+                        <th>Plazas</th>
+                        <th>Horario</th>
+                        <th>Duracion</th>
+                        <th>Preferencia</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <c:forEach var="empresa" items="${sessionScope.empresas_no_solicitadas}">
                         <tr>
-                            <th>Nombre</th>
-                            <th>Direccion</th>
-                            <th>Ambito</th>
-                            <th>Web</th>
-                            <th>Telefono</th>
-                            <th>Plazas</th>
-                            <th>Horario</th>
-                            <th>Duracion</th>
-                            <th>Preferencia</th>
+                            <td><c:out value="${empresa.nombre}"/></td>
+                            <td><c:out value="${empresa.direccion}"/></td>
+                            <td><c:out value="${empresa.ambito}"/></td>
+                            <td><c:out value="${empresa.web}"/></td>
+                            <td><c:out value="${empresa.telefono}"/></td>
+                            <td><c:out value="${empresa.nalumnos}"/></td>
+                            <td><c:out value="${empresa.horario}"/></td>
+                            <td><c:out value="${empresa.duracion}"/></td>
+                            <td>
+                                <select name="${empresa.nombre}">
+                                    <option value="0">Sin asignar</option>
+                                    <c:forEach var="preferencia" items="${sessionScope.preferencias}">
+                                        <option value="${preferencia}"><c:out value="${preferencia}"/></option>
+                                    </c:forEach>
+
+                                </select>
+                            </td>                            
                         </tr>
-                    </thead>
+                    </c:forEach>
+                </tbody>
+            </table>
 
-                    <tbody>
-                         <c:forEach var="empresa" items="${sessionScope.empresas_no_solicitadas}">
-                            <tr>
-                                <td><c:out value="${empresa.nombre}"/></td>
-                                <td><c:out value="${empresa.direccion}"/></td>
-                                <td><c:out value="${empresa.ambito}"/></td>
-                                <td><c:out value="${empresa.web}"/></td>
-                                <td><c:out value="${empresa.telefono}"/></td>
-                                <td><c:out value="${empresa.nalumnos}"/></td>
-                                <td><c:out value="${empresa.horario}"/></td>
-                                <td><c:out value="${empresa.duracion}"/></td>
-                                <td>
-                                    <select name="${empresa.nombre}">
-                                        <option value="0">Sin asignar</option>
-                                        <c:forEach var="preferencia" items="${sessionScope.preferencias}">
-                                            <option value="${preferencia}"><c:out value="${preferencia}"/></option>
-                                        </c:forEach>
-
-                                    </select>
-                                </td>                            
-                            </tr>
-                        </c:forEach>
-                    </tbody>
-                </table>
-                <button type="submit" value="Solicitar"/>Solicitar</button>
-            </form>
-        </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    </body>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
 </html>
